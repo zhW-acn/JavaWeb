@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<!--script可以放置在head和body里，
+里每个<script>标记都会阻止页面呈现过程，
+直到它完全下载并执行了JavaScript代码为止
+放在head里会严重影响网站性能
+所以script应该放在body末尾-->
+
+<!--单击按钮-->
+
+
+<button onclick="myFunc()">点击</button>
+
+<p id="output">这是一个段落</p>
+
+
+<script>
+    function myFunc() {
+        document.getElementById("output").innerHTML = "Hello JavaScript";
+    }
+</script>
+<hr>
+<!--内联防止JS代码-->
+<p onclick="this.innerHTML = '你好JS';">这是一个内联JS的段落，试着点击我</p>
+<hr>
+<script src="01-外部JS.js"></script>
+<p id="output_out" onclick="out()">这是外部JS测试段落</p>
+</body>
+</html>

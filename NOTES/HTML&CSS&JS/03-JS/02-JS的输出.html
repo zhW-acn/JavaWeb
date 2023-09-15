@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p id="msg"></p>
+<p id="output"></p>
+
+<button onclick="myFunc()">点我</button>
+
+<!-- 使用windows.alert()-->
+<button onclick="alert('Hello world');">alert</button>
+
+
+<script>
+    // 1.使用 innerHTML，写入HTML元素
+    document.getElementById("msg").innerHTML = "Hello JS";
+    document.getElementById("output").innerHTML = 1 + 1; <!-- 直接输出结果了-->
+
+    // 2.使用document.write()，写入文档流----这里呈现的是在body最后面
+    document.write("Hello JS<br>");
+    document.write(1+1);
+
+    // 如果document.write()在页面加载后使用此方法，它将覆盖该文档中的所有现有内容。
+    function myFunc() {
+        document.write("<p>我踏马莱纳</p>");
+    }
+
+    // 使用console.log()，在控制台输出
+    console.log("Hello world");
+    console.log(1 + 1);
+</script>
+</body>
+</html>
