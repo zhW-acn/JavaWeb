@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 
+            为div的子元素span设置一个字体颜色红色
+
+            子元素选择器
+                作用：选中指定父元素的指定子元素
+                语法：父元素 > 子元素
+        */
+        div.box>span {
+            color: red;
+        }
+
+        /* 
+            后代元素选择器
+            作用：选中指定元素内的指定后代元素
+            语法：祖先 后代 
+        */
+        div span {
+            color: blue;
+        }
+
+        /*  */
+        div>p>span {
+            color: aqua;
+        }
+
+        /*
+            选择下一个兄弟
+                语法：前一个 + 下一个
+        */
+        p+span {
+            color: brown;
+        }
+
+        /* 
+            选择所有的兄弟
+                语法：兄 ~ 弟
+        */
+        p~span {
+            color: magenta
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 
+        父元素：    直接包含子元素的元素
+        子元素：    直接被父元素包含的元素
+        祖先元素：  直接或间接包含后代的元素
+        后代元素：  直接或间接被包含后代的元素
+        兄弟元素：  父元素相同的元素
+     -->
+
+    <div class="box">
+        div
+        <p>
+            div->p
+            <span>
+                p->span
+            </span>
+        </p>
+        <span>div->span</span>
+    </div>
+
+
+    <div><span>div->span</span></div>
+</body>
+
+</html>

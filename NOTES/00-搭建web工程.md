@@ -11,6 +11,8 @@
 <hr>
 如果是手动添加Artifacts
 
+目录结构：
+![目录结构.png](imgs/07-目录结构.png)
 ![4-手动添加Artifacts.png](imgs/4-手动添加Artifacts.png)
 
 # 如何运行

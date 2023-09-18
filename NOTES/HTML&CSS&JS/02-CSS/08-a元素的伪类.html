@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        /* link表示正常的链接 */
+        a:link{
+            color: rebeccapurple;
+        }
+
+        /* visited表示访问过的 
+           由于隐私，visited只能修改color
+        */
+        a:visited{
+            color: orange;
+        }
+
+        /* hover表示鼠标移入的状态 */
+        a:hover{
+            color:aqua;
+        }
+
+        /* active表示鼠标点击 */
+        a:active{
+            color:brown;
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        1. 没有访问过的链接
+        2. 访问过的链接
+    -->
+    <a href="https://www.baidu.com">访问过</a><br>
+    <a href="https://www.baidu123.com">没访问过</a>
+</body>
+</html>

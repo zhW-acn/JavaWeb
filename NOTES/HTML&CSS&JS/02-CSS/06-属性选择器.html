@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        /* 
+            [属性名] 选择含有指定属性的元素
+            [属性名=属性值] 选择含有指定属性和属性值的元素
+            [属性名^=属性值] 选择属性值以指定值开头的元素
+            [属性名$=属性值] 选择属性值以指定值结尾的元素
+            *：属性值在任意位置的元素都能匹配
+        */
+        p[title] {
+            color: red;
+        }
+
+        p[title=a] {
+            color: blue;
+        }
+
+        p[title^=d] {
+            color: green;
+        }
+
+        p[title$=a] {
+            color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <p title="a">ciallo</p>
+    <p title="b">ciallo</p>
+    <p title="c">ciallo</p>
+    <p title="dd">ciallo</p>
+    <p title="da">ciallo</p>
+    <p title="">ciallo</p>
+    <p>ciallo</p>
+
+</body>
+
+</html>
