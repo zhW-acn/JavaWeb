@@ -22,4 +22,13 @@
         <url-pattern>/extendsGenericServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>extendsHttpServlet</servlet-name>
+        <servlet-class>com.acn.extendsHttpServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>extendsHttpServlet</servlet-name>
+        <url-pattern>/extendsHttpServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

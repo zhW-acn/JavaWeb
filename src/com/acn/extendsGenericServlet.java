@@ -16,8 +16,7 @@ public class extendsGenericServlet extends GenericServlet {
     public static int i = 1; // 请求次数
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
-        System.out.println("请求" + i + "次");
-//        servletResponse.setCharacterEncoding("GBK");
+        System.out.println("GenericServlet请求" + i + "次");
         servletResponse.setContentType("text/plain;charset=UTF-8");
         PrintWriter writer = servletResponse.getWriter();
         writer.print("GenericServlet请求" + i++ + "次");

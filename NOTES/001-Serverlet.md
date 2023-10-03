@@ -18,3 +18,74 @@ String getServletInfo();
 ServletConfig getServletConfig();
 ```
 这几个方法构成了一个Servlet的生命周期
+
+# Servlet的三种实现方法
+1. 实现Servlet接口
+   ```java
+   public class implementServlet implements Servlet {
+       public static int i = 1; // 请求次数
+   
+       @Override
+       public void init(ServletConfig servletConfig) {
+           System.out.println("调用Servlet.init()初始化");
+       }
+   
+       @Override
+       public ServletConfig getServletConfig() {
+           return null;
+       }
+   
+       @Override
+       public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws IOException {
+           System.out.println("Servlet请求" + i + "次");
+           servletResponse.setCharacterEncoding("GBK");
+           PrintWriter writer = servletResponse.getWriter();
+           writer.print("Servlet请求" + i++ + "次");
+           writer.flush();
+       }
+   
+       @Override
+       public String getServletInfo() {
+           return null;
+       }
+   
+       @Override
+       public void destroy() {
+   
+       }
+   }
+   ```
+2. 继承GenericServlet
+    ```java
+   public class extendsGenericServlet extends GenericServlet {
+       public static int i = 1; // 请求次数
+       @Override
+       public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
+              System.out.println("GenericServlet请求" + i + "次");
+          servletResponse.setContentType("text/plain;charset=UTF-8");
+          PrintWriter writer = servletResponse.getWriter();
+          writer.print("GenericServlet请求" + i++ + "次");
+          writer.flush();
+       }
+    }
+   ```
+3. 继承HttpServlet
+   ```java
+   public class extendsHttpServlet extends HttpServlet {
+      public static int i = 1; // 请求次数
+      @Override
+      protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+         System.out.println("HttpServlet请求" + i + "次");
+         resp.setContentType("text/plain;charset=UTF-8");
+         PrintWriter writer = resp.getWriter();
+         writer.print("HttpServlet请求" + i++ + "次");
+         writer.flush();
+      }
+   }
+   ```
+   
+
+# 总结
+1. 实现Servlet接口需要重写servlet所有生命周期方法
+2. 继承GenericServlet只需重写核心的service方法。HttpServlet帮你实现了service，只需重写其他请求相关的方法
+3. 使用WebServlet注解后，无需对web.xml进行配置，注解会覆盖web.xml。需要指定多个URL时，注解里写成数组形式@WebServlet{"/servlet1","/servlet2"}

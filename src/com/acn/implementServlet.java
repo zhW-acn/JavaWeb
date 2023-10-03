@@ -25,8 +25,9 @@ public class implementServlet implements Servlet {
 
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws IOException {
-        System.out.println("请求" + i + "次");
-        servletResponse.setCharacterEncoding("GBK");
+        System.out.println("Servlet请求" + i + "次");
+//        servletResponse.setCharacterEncoding("GBK");
+        servletResponse.setContentType("text/plain;charset=UTF-8");
         PrintWriter writer = servletResponse.getWriter();
         writer.print("Servlet请求" + i++ + "次");
         writer.flush();
