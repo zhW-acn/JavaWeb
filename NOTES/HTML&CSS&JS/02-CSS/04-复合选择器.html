@@ -22,25 +22,33 @@
             font-size: 30px;
         }
 
-        .a.b.c {
+        div#s {
+            font-size: 100px;
+        }
+
+        .a.b {
             color: blue;
         }
 
         /* 使h1和span同时变为绿色 并集选择器，既选择了h1也选择了span*/
-        h1,
-        span {
+        .aaa, h1
+        {
             color: green;
         }
+
 
     </style>
 </head>
 
 <body>
+<div id="s">divs</div>
+<div class="red">div</div>
+<div>div</div>
+<p class="a b c">p</p>
+<h1>h1</h1>
+<span>span</span>
+<a class="aaa">aaa</a>
 
-    <div class="red">div</div>
-    <p class="a b c">p</p>
-    <h1 >h1</h1>
-    <span >span</span>
 </body>
 
 </html>
