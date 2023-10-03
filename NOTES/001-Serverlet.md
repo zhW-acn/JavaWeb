@@ -83,7 +83,21 @@ ServletConfig getServletConfig();
       }
    }
    ```
+4. 使用annotation
+```java
+@WebServlet({"/annotationServlet", "/*"})
+public class annotationServlet extends HttpServlet {
+    public static int i = 1; // 请求次数
    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        System.out.println("annotationServlet请求" + i + "次");
+        response.setContentType("text/plain;charset=UTF-8");
+        PrintWriter writer = response.getWriter();
+        writer.print("annotationServlet请求" + i++ + "次");
+        writer.flush();
+    }
+}
+```
 
 # 总结
 1. 实现Servlet接口需要重写servlet所有生命周期方法
