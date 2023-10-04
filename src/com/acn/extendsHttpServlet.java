@@ -1,5 +1,6 @@
 package com.acn;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +19,9 @@ public class extendsHttpServlet extends HttpServlet {
         System.out.println("HttpServlet请求" + i + "次");
         resp.setContentType("text/plain;charset=UTF-8");
         PrintWriter writer = resp.getWriter();
-        writer.print("HttpServlet请求" + i++ + "次");
-        writer.flush();
+        ServletOutputStream outputStream = resp.getOutputStream();
+        outputStream.print(i);
+//        writer.print("HttpServlet请求" + i++ + "次");
+//        writer.flush();
     }
 }

@@ -1,3 +1,10 @@
+### request的功能可以分为以下几种：
+1. 封装了请求头数据；
+2. 封装了请求正文数据，如果是GET请求，那么就没有正文；
+3. request是一个域对象，可以把它当成Map来添加获取数据； 
+4. request提供了请求转发和请求包含功能
+
+
 ``` java
 // 参数
 Enumeration<String> parameterNames = request.getParameterNames();
