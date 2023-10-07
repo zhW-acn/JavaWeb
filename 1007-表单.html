@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+</head>
+<body>
+<form method="" action="">
+    <!--    使用table对齐-->
+    <table>
+        <!--    请求方式method: get/post/delete/put-->
+        <!--    get/post: 传输表单发送数据
+            参数  快慢  传输长度    文件传输
+        get：url 快   有限1KB  不支持
+        post：请求主体 慢 无限  支持
+        -->
+        <label>
+            <input type="text" name="username"/>
+            <input type="password"/>
+            <input type="number"/>
+            <input type="submit"/>value=提交的key，name=提交的value
+            <input type="date"/>
+            <input type="file"/>
+            <input type="image"/>
+            <input type="checkbox"/>多选，name设为同一组
+            <input type="radio" name="sex"/>单选，name设为同一组
+            <input type="reset"/>
+            <input type="hidden">隐藏
+            <input type="button" value="按钮"/>
+
+            <!--        组合标签，下拉框-->
+            <label>省份</label>
+            <select name="" id="">
+                <option value="">安徽</option>
+                <option value="">浙江</option>
+            </select>
+
+            <textarea>
+            文本域
+        </textarea>
+        </label>
+    </table>
+</form>
+</body>
+</html>
