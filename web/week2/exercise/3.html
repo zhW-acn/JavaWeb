@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        function count() {
+            var sum = 0;
+            for (var i = 0; i < nums.length; i++) {
+                sum += nums[i];
+            }
+            document.getElementById("addThisWay").innerHTML = "总合：" + sum;
+        }
+    </script>
+</head>
+<body>
+<!--使用随机数。在页面随机三个100以内随机数的二级标题，然后有个按钮，点击之后，
+在三个二级标题之后添加三个随机数总和-->
+<script>
+    var nums = [];
+    for (var i = 0; i < 3; i++) {
+        var ran = Math.floor(Math.random() * 100) + 1;
+        nums.push(ran);
+    }
+    for (var i = 0; i < 3; i++) {
+
+        document.write("<h2 class='h2'>" + nums[i] + "</h2>");
+    }
+</script>
+<h2 id="addThisWay"></h2>
+<button onclick="count()">点击</button>
+</body>
+</html>

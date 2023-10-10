@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>柚子厨差不多得了</title>
+
+    <style>
+        img {
+            display: block;
+        }
+    </style>
+
+    <script>
+        var cursor = 0;
+
+        function pre() {
+            cursor--;
+            selectPic()
+        }
+
+        function next() {
+            cursor++;
+            selectPic()
+        }
+
+        function selectPic() {
+            if (cursor % 3 === 0) {
+                document.getElementById("show").innerHTML = "<img src=\"img/1.png\" alt=\"Ciallo～(∠・ω< )⌒☆\">";
+            } else if (cursor % 3 === 1) {
+                document.getElementById("show").innerHTML = "<img src=\"img/2.png\" alt=\"Ciallo～(∠・ω< )⌒☆\">";
+            } else {
+                document.getElementById("show").innerHTML = "<img src=\"img/3.gif\" alt=\"Ciallo～(∠・ω< )⌒☆\">";
+            }
+        }
+    </script>
+</head>
+<body>
+<!--页面上显示一张图片，有两个按钮，上一张与下一张，点击按钮进行图片切换，可以循环切换。
+例如：一共有3张图片，当前显示为第一张图片，点击上一张，会切换到第三张图片，点击下一张为第二张图片，以此类推。-->
+</body>
+<div id="show" align="center">
+    <img src="img/1.png" alt="Ciallo～(∠・ω< )⌒☆">
+</div>
+<hr>
+<div align="center">
+    <button onclick="pre()">
+        上一张
+    </button>
+    <button onclick="next()">
+        下一张
+    </button>
+</div>
+</html>
