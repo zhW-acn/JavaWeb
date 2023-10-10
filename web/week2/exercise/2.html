@@ -16,6 +16,7 @@
         function pre() {
             cursor--;
             cursor %= 3;
+            console.log(cursor)
             selectPic()
         }
 
@@ -28,7 +29,7 @@
         function selectPic() {
             if (cursor === 0) {
                 document.getElementById("show").innerHTML = "<img src=\"img/1.png\" alt=\"Ciallo～(∠・ω< )⌒☆\">";
-            } else if (cursor === 1) {
+            } else if (cursor === 1|| cursor === -1) {
                 document.getElementById("show").innerHTML = "<img src=\"img/2.png\" alt=\"Ciallo～(∠・ω< )⌒☆\">";
             } else {
                 document.getElementById("show").innerHTML = "<img src=\"img/3.gif\" alt=\"Ciallo～(∠・ω< )⌒☆\">";
