@@ -32,14 +32,11 @@ public class JDBC {
             st.setString(1, username);
             st.setString(2, password);
             int i = st.executeUpdate();
-            if(i == 1){
+            if (i == 1) {
                 return true;
             }
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            st.close();
-            c.close();
         }
         return false;
     }

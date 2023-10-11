@@ -9,21 +9,10 @@
 %>
 <html>
 <head>
-    <title>INSERT</title>
+    <title>Title</title>
     <base href="<%=basePath%>">
 </head>
 <body>
-<div>
-    <form action="JDBCServlet" method="post">
-        <label>username:</label><label>
-        <input type="text" name="username">
-    </label>
-        <label>password:</label><label>
-        <input type="password" name="password">
-    </label>
-        <input type="submit">
-    </form>
-</div>
-
+当前登录的用户是：${sessionScope.user}
 </body>
 </html>

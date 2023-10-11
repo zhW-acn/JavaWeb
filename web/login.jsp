@@ -9,21 +9,19 @@
 %>
 <html>
 <head>
-    <title>INSERT</title>
+    <title>Title</title>
     <base href="<%=basePath%>">
 </head>
 <body>
-<div>
-    <form action="JDBCServlet" method="post">
-        <label>username:</label><label>
-        <input type="text" name="username">
+<form action="LoginServlet" method="post">
+    <label>
+        <input name="user" type="text">
     </label>
-        <label>password:</label><label>
-        <input type="password" name="password">
-    </label>
-        <input type="submit">
-    </form>
-</div>
 
+    <label>
+        <input name="passwd" type="password">
+    </label>
+    <input type="submit">
+</form>
 </body>
 </html>

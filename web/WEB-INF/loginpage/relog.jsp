@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   User: acane
   Date: 2023/10/11
@@ -9,21 +10,10 @@
 %>
 <html>
 <head>
-    <title>INSERT</title>
+    <title>Title</title>
     <base href="<%=basePath%>">
 </head>
 <body>
-<div>
-    <form action="JDBCServlet" method="post">
-        <label>username:</label><label>
-        <input type="text" name="username">
-    </label>
-        <label>password:</label><label>
-        <input type="password" name="password">
-    </label>
-        <input type="submit">
-    </form>
-</div>
-
+登陆失败，<a href="<c:url value="/login.jsp"/>">重新登录</a>
 </body>
 </html>
