@@ -10,7 +10,6 @@ import java.sql.*;
 public class JDBC {
     static Connection c;
     static PreparedStatement st;
-    static ResultSet rs;
     static String sql;
 
     static {
@@ -33,7 +32,9 @@ public class JDBC {
             st.setString(1, username);
             st.setString(2, password);
             int i = st.executeUpdate();
-            return i == 1;
+            if(i == 1){
+                return true;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

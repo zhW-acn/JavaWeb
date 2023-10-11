@@ -21,6 +21,7 @@ public class JDBCServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             boolean flag = JDBC.insert(req.getParameter("username"), req.getParameter("password"));
+            req.setAttribute("flag",flag);
             req.getRequestDispatcher("week2/ShowIsSuccess.jsp").forward(req,resp);
         } catch (SQLException e) {
             req.getRequestDispatcher("web/errorHandle.jsp");
