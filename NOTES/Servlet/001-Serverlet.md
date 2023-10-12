@@ -106,5 +106,6 @@ ServletConfig getServletConfig();
    - Servlet 调用 service() 方法来处理客户端的请求。每请求一次就调用一次。 
    - Servlet 销毁前调用 destroy() 方法。 
    - 最后，Servlet 是由 JVM 的垃圾回收器进行垃圾回收的
+   - 在web.xml中的servlet使用`load-on-startup`标签设为1，设定非懒加载。
 2. 继承GenericServlet只需重写核心的service方法。HttpServlet帮你实现了service，只需重写其他请求相关的方法
 3. 使用WebServlet注解后，无需对web.xml进行配置，注解会覆盖web.xml。需要指定多个URL时，注解里写成数组形式@WebServlet{"/servlet1","/servlet2"}
