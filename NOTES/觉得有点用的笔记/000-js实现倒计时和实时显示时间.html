@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function showTime() {
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var hour = date.getHours();
+            var min = date.getMinutes();
+            var sec = date.getSeconds();
+            var res = year + "年" + month + "月" + day + "日" + hour + "时" + min + "分" + sec + "秒";
+            document.getElementById("time").innerText = res;
+
+            setTimeout("showTime()", 1000);// 每隔一秒执行一次
+        }
+
+        var inputs = document.getElementsByClassName("input");// 拿到input
+        function checkUsername() {// 检查username
+            var username = inputs[0];
+            if (username.value == null || username.value == "") {
+                username.setAttribute("placeholder", "用户名不能为空");
+                return false;
+            }
+
+            // 正则检查
+            var reg = / /;
+            // username.value就是input里的值
+            var flag = reg.test(username.value);
+            return true;
+        }
+
+        function checkPassword() {// 检查password
+            var password = inputs[1];
+            if (password.value == null || password.value == "") {
+                password.setAttribute("placeholder", "密码不能为空");
+                return false;
+            }
+            return true;
+        }
+
+        function checkSubmit() {//检查用户名和密码，如果一个为空就清空并弹窗
+            if (checkUsername() && checkPassword()) {
+                return true;
+            } else {
+                //清空
+                inputs[0].innerText = "";
+                inputs[1].innerText = "";
+                alert("用户名和密码不能为空");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body onload="showTime()"><!--页面加载就调用-->
+<div id="time">
+</div>
+<hr>
+<form action="" method="post" onsubmit="return checkSubmit()"><!--onsubmit属性，return为true确认提交-->
+    <label>
+        <!-- onblur属性，光标移出输入框就执行函数-->
+        用户名：<input class="input" type="text" placeholder="请输入用户名" onblur="checkUsername()">
+    </label><br>
+    <label>
+        密码：<input class="input" type="password" placeholder="请输入密码" onblur="checkPassword()">
+    </label><br>
+    <input type="submit" value="登录">
+</form>
+</body>
+</html>
