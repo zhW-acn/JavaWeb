@@ -18,9 +18,9 @@ public class Road extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         // 请求转发在服务器内部
-//        req.getRequestDispatcher("/road/index.html").forward(req,resp);
+//        req.getRequestDispatcher("/road/index.html.bak").forward(req,resp);
 
         // 重定向在浏览器，要加上站点路径request.getContextPath() + /
-        resp.sendRedirect("/road/index.html");
+        resp.sendRedirect("/road/index.html.bak");
     }
 }
