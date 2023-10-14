@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function showTIme() {
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var hour = date.getHours();
+            var min = date.getMinutes();
+            var sec = date.getSeconds();
+            var res = year+"年"+month+"月"+day+"日"+hour+"时"+min+"分"+sec+"秒";
+            document.getElementById("time").innerText = res;
+
+            setTimeout("showTIme()",1000);// 每隔一秒执行一次
+        }
+
+        function check() {
+            var reg = / /;
+            var target = '';
+            var flag = reg.test(target);
+        }
+    </script>
+</head>
+<body onload="showTIme()"><!--页面加载就调用-->
+<div id="time">
+</div>
+</body>
+</html>
