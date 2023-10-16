@@ -11,7 +11,12 @@
     `req.getServletContext()`
 6. 获取Cookie
     `req.getCookies()`
-7. 获取上下地址
+7. 获取页面请求参数
+    `req.getParameter()`
+8. 获取头信息
+    `req.getHeader()`
+9. 获取MIME类型
+    `req.getContentType()`
 
 
 # response

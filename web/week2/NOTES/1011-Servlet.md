@@ -33,8 +33,22 @@ Web容器提供了运行Servlet所需的环境。负责初始化，实例化，�
 5. js脚本 location.href = "url"
 6. ajax（没学）
 
-# 重定向
-1. resp.sendRedirect(target);
-2. a标签的href
-3. location.href
-4. c:redirect url=""
+
+# ServletConfig
+
+Servlet在初始化时，web容器会从xml中提取初始化参数和Servlet名称生成ServletConfig对象，还会创建ServletContext对象并存储操ServletConfig中
+
+初始化参数
+```xml
+<init-param>
+    <param-name></param-name>
+    <param-value></param-value>
+</init-param>
+```
+在Servlet中获得
+``` java
+config.getInitParameter("");
+```
+
+- config.getServletContext(); // web服务器容器
+- 
