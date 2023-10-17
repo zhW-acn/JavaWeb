@@ -50,5 +50,13 @@ Servlet在初始化时，web容器会从xml中提取初始化参数和Servlet名
 config.getInitParameter("");
 ```
 
-- config.getServletContext(); // web服务器容器
-- 
+1）getInitParameter(String name)：根据初始化参数名称获取对应的初始化参数值
+
+2）getInitParameterNames()：获取所有的初始化参数名称列表
+
+3）getServletContext()：获取Servlet上下文对象
+
+4）getServletName()：获取Servlet名称
+
+
+如果想要全局设置参数的话，使用context-param标签
