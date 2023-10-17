@@ -1,4 +1,4 @@
-package com.acn.login;
+package com.acn.filter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Enumeration;
 
 /**
  * @Description: TODO
@@ -25,9 +24,9 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = req.getSession();
             session.setAttribute("user", user);
             // 转发到一个成功的页面
-            req.getRequestDispatcher("/WEB-INF/loginpage/success.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/filterdemo/success.jsp").forward(req, resp);
         } else {
-            req.getRequestDispatcher("/WEB-INF/loginpage/relog.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/filterdemo/relog.jsp").forward(req, resp);
         }
     }
 }

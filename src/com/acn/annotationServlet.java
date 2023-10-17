@@ -28,7 +28,6 @@ public class annotationServlet extends HttpServlet {
         writer.flush();
         System.out.println("-----------");
 
-
         System.out.println("request.getAuthType() = " + request.getAuthType());
         System.out.println("request.getCookies() = " + Arrays.toString(request.getCookies()));
         System.out.println("request.getParameter(\"name\") = " + request.getParameter("name"));

@@ -1,4 +1,4 @@
-package com.acn.login;
+package com.acn.filter;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -16,7 +16,7 @@ import java.util.List;
  * @author: acn
  * @date: 2023/10/11/20:21
  */
-@WebFilter({"/loginpage/*"})//loginpage下的过滤器
+@WebFilter({"/filterdemo/*"})//loginpage下的过滤器
 public class LoginFilter extends HttpFilter {
     @Override
     protected void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
