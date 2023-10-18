@@ -8,7 +8,7 @@ var xhr = new XMLHttpRequest();
 xhr.open('GET', 'URL');
 // 3.通过连接发送一次请求
 xhr.send(null);
-// 4.指定xhr状态变化事件处理函数
+// 4.指定xhr状态变化事件处理函数E
 xhr.onreadystatechange = function () { 
     
     // 通过xhr的 reqdyState 判断此次请求的响应是否接收完成
