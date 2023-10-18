@@ -13,7 +13,7 @@
     <base href="<%=basePath%>">
 </head>
 <body>
-请求次数： ${applicationScope.visit}
+请求次数： ${applicationScope.count}
 <form action="LoginServlet" method="post">
     <label>
         <input name="user" type="text">

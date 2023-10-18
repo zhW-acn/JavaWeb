@@ -1,18 +1,19 @@
 package com.acn.filter;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletRequestEvent;
-import javax.servlet.ServletRequestListener;
+import javax.servlet.*;
 import javax.servlet.annotation.WebListener;
-import javax.servlet.http.HttpServlet;
 
 /**
  * @Description: TODO
  * @author: acn
  * @date: 2023/10/18/20:30
  */
-@WebListener()
+@WebListener
 public class ListenerDemo implements ServletRequestListener {
+
+    public ListenerDemo() {
+    }
+
     @Override
     public void requestInitialized(ServletRequestEvent sre) {
         ServletContext application = sre.getServletContext();
