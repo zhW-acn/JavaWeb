@@ -49,8 +49,14 @@ age2 = ${age2}
 </c:choose>
 <hr>
 <h1>c:foreach</h1>
-<c:forEach var="i" begin="0" end="10" step="2">
+<c:forEach var="i" begin="0" end="10" step="2" varStatus="Status">
     ${i}<br>
+    ${Status.index+1}
 </c:forEach>
+<hr>
+<%--字符串分割--%>
+<c:forTokens var="str" items="abc,def,xyz" delims=",">
+    <p>${str}</p>
+</c:forTokens>
 </body>
 </html>
