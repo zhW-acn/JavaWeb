@@ -43,3 +43,10 @@ filter的init方法在容器启动时调用，在servlet销毁后销毁
             做相应的处理，这里的需求是重定向到login.jsp
         }
     ```
+   
+
+filter应用场景：检测用户登录，设置字符集，页面不缓存。
+
+
+
+servlet是服务端小程序，filter是过滤器。有相似的生命周期和配置方式。不同点是初始化参数不同，filterConfig和servletConfig。filter执行是doFilter，servlet是service方法
