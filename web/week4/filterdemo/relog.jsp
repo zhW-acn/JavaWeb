@@ -14,6 +14,6 @@
     <base href="<%=basePath%>">
 </head>
 <body>
-登陆失败，<a href="<c:url value="/login.jsp"/>">重新登录</a>
+登陆失败，<a href="<c:url value="/week4/login.jsp"/>">重新登录</a>
 </body>
 </html>

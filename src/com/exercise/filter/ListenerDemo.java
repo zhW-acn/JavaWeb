@@ -1,4 +1,4 @@
-package com.acn.filter;
+package com.exercise.filter;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebListener;
@@ -17,17 +17,11 @@ public class ListenerDemo implements ServletRequestListener {
     @Override
     public void requestInitialized(ServletRequestEvent sre) {
         ServletContext application = sre.getServletContext();
-        Object visit = application.getAttribute("visit");
+        Integer visit = (Integer) application.getAttribute("count");
         if (visit == null) {
-            application.setAttribute("visit", 1);
+            application.setAttribute("count", 1);
         } else {
-            if (visit instanceof Integer) {
-                Integer i = (Integer) visit;
-                application.setAttribute("visit", i + 1);
-            }
-            else{
-                throw new RuntimeException("数据有误");
-            }
+            application.setAttribute("count", visit + 1);
         }
     }
 }

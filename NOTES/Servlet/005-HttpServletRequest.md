@@ -4,7 +4,7 @@
 3. request是一个域对象，可以把它当成Map来添加获取数据； 
 4. request提供了请求转发和请求包含功能
 
-
+![request报文格式.png](../../res/imgs/request报文格式.png)
 ``` java
 // 参数
 Enumeration<String> parameterNames = request.getParameterNames();

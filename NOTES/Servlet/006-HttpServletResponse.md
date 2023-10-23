@@ -3,7 +3,7 @@
 2. 发送状态码 
 3. 设置响应正文
 4. 重定向
-
+![response报文格式.png](../../res/imgs/response报文格式.png)
 
 1. 获取响应流，两个不能同时get，不然会抛IllegalStateException
     - PrintWriter out = response.getWriter()：获取字符流（默认字符编码为ISO-8859-1，[点击这里](003-解决乱码.md)）

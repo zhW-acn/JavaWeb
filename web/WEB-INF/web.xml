@@ -7,7 +7,7 @@
 
     <welcome-file-list>
         <!-- 在这里指定欢迎页面 -->
-        <welcome-file>login.jsp</welcome-file>
+        <welcome-file>week4/login.jsp</welcome-file>
     </welcome-file-list>
 
     <servlet>

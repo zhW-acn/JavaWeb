@@ -1,4 +1,4 @@
-package com.acn.filter;
+package com.exercise.filter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,14 +19,14 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String user = req.getParameter("user");
         String passwd = req.getParameter("passwd");
-        if ("admin".equals(user) && "123".equals(passwd)) {
+        if ("123".equals(passwd)) {
             // 向session中保存状态
             HttpSession session = req.getSession();
             session.setAttribute("user", user);
             // 转发到一个成功的页面
-            req.getRequestDispatcher("/WEB-INF/filterdemo/success.jsp").forward(req, resp);
+            req.getRequestDispatcher("/week4/filterdemo/success.jsp").forward(req, resp);
         } else {
-            req.getRequestDispatcher("/WEB-INF/filterdemo/relog.jsp").forward(req, resp);
+            req.getRequestDispatcher("/week4/filterdemo/relog.jsp").forward(req, resp);
         }
     }
 }

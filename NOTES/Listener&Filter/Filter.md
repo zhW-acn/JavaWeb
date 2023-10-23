@@ -7,10 +7,25 @@
 
 ![Filter图解.png](../../res/imgs/Filter图解.png)
 
+filter的init方法在容器启动时调用，在servlet销毁后销毁
+
 - 责任链设计模式
 
 - 在web.xml中设置filter，和Servlet神似 
-
+```
+ <filter>
+     <filter-name></filter-name>
+     <filter-class></filter-class>
+ </filter>
+ <filter-mapping>
+     <filter-name></filter-name>
+     <url-pattern></url-pattern>// 路径匹配
+     <servlet-name></servlet-name>// 拦截指定servlet
+     <dispatcher></dispatcher>
+     // request include error forward 拦截请求类型，缺省为request
+ </filter-mapping>
+```
+- 注解方式：name:"相当于servlet-name"
 
 如果request set了相同的Attribute，前面的Filter会把Attribute的值覆盖。因为request自始至终是同一个
 
