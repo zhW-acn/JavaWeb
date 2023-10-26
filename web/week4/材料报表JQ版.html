@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        table tr:nth-child(even) {
+            background-color: deeppink;
+        }
+
+        table tr:nth-child(odd) {
+            background-color: crimson;
+        }
+    </style>
+</head>
+<body>
+<!--在页面创建两个按钮，分别为添加一行表格，删除一行表格。
+页面启动为3行2列的表格。点击添加一行表格就在原有表格基础上添加一行，
+（例如：原本是3行两列，变为4行两列，以此类推)，删除一行表格同理，在原有的行数-1。-->
+
+
+<table id="table" border="1" cellspacing="0" style="text-align: center">
+    <caption style="color: crimson"><b>材料价格清单</b></caption>
+    <th>尺寸（厘米）</th>
+    <th>PP胶</th>
+    <th>相纸</th>
+    <th>油画布</th>
+
+    <tbody>
+    <tr>
+        <td>12（20x30）</td>
+        <td>6元</td>
+        <td>7元</td>
+        <td>10元</td>
+    </tr>
+    <tr>
+        <td>12（20x30）</td>
+        <td>6元</td>
+        <td>7元</td>
+        <td>10元</td>
+    </tr>
+    <tr>
+        <td>12（20x30）</td>
+        <td>6元</td>
+        <td>7元</td>
+        <td>10元</td>
+    </tr>
+    <tr>
+        <td>12（20x30）</td>
+        <td>6元</td>
+        <td>7元</td>
+        <td>10元</td>
+    </tr>
+    <tr>
+        <td>12（20x30）</td>
+        <td>6元</td>
+        <td>7元</td>
+        <td>10元</td>
+    </tr>
+    <tr>
+        <td>12（20x30）</td>
+        <td>6元</td>
+        <td>7元</td>
+        <td>10元</td>
+    </tr>
+    </tbody>
+
+    <tfoot>
+    <td>
+        <button id="addButton">向后追加</button>
+    </td>
+    <td>
+        <button id="changeButton">改变</button>
+    </td>
+    <td colspan="2">
+        <button id="deleteButton">删除最后</button>
+    </td>
+    </tfoot>
+</table>
+
+
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    $('#addButton').bind('click', function () {
+            var input1 = prompt("输入尺寸（厘米）:");
+            var input2 = prompt("输入PP胶:");
+            var input3 = prompt("输入相纸:");
+            var input4 = prompt("输入油画布:");
+
+            if (input1 !== null && input2 !== null && input3 !== null && input4 !== null) {
+                $('table tr:eq(-2) td:eq(0)').text(input1)
+                $('table tr:eq(-2) td:eq(1)').text(input2)
+                $('table tr:eq(-2) td:eq(2)').text(input3)
+                $('table tr:eq(-2) td:eq(3)').text(input4)
+            }
+        }
+    )
+
+
+    $('#deleteButton').bind('click', function () {
+        var table = $("#table")[0]
+        var rowCount = table.rows.length - 1
+        if (rowCount > 1) {
+            table.deleteRow(rowCount - 1)
+        } else {
+            alert("不能再删除了，至少需要保留一行。")
+        }
+    })
+
+    $('#changeButton').bind('click', function () {
+        var a = function () {
+            $('tr:nth-child(even)').css({'background-color': 'blue', 'font-family': '幼圆'})
+            $('tr:nth-child(odd)').css({'background-color': 'black', 'font-family': '幼圆'})
+        }
+        var b = function () {
+            $('tr:nth-child(even)').css({'background-color': 'deeppink', 'font-family': '黑体'})
+            $('tr:nth-child(odd)').css({'background-color': 'crimson', 'font-family': '黑体'})
+        }
+        if ($('tr:nth-child(even)').css('font-family') === '幼圆') {
+            return b()
+        } else {
+            return a()
+        }
+    })
+
+
+</script>
+</body>
+</html>

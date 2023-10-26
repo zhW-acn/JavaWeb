@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+<p id="p" class="p">p标签</p>
+<label>aaaa</label>
+<script>
+    // JQuery对象
+    var p1 = document.getElementById("p")
+    var p2 = $("#p")
+
+    var p3 = $(p1)// DOM转Jquery
+    var p4 = p2[0]// JQuery转DOM
+
+    //p2.text()// 获取文本返回String
+
+    // 选择器
+    //$("#p") id
+    //$(".p") class
+
+</script>
+</body>
+</html>
