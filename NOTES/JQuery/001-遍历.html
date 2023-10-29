@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>循环</title>
+</head>
+<body>
+<p class="p">p1</p>
+<p class="p">p2</p>
+<p class="p">p3</p>
+<p class="p">p4</p>
+
+<script src="jquery-3.7.1.min.js"></script>
+<script>
+    $(function () {
+        var arr = new Array();
+        arr.push(1)
+        arr.push(2)
+        arr.push(3)
+        arr.push(4)
+
+        // param1:被遍历目标，param2:遍历函数（下标，游标）
+        $.each(arr, function (index, a) {
+            alert(index + "---" + a)
+        })
+    })
+
+    // 得到一组节点，遍历
+    $(function () {
+        var ps = $('.p');
+        $.each(ps,function (index,p){
+            console.log($(p).text())
+        })
+    })
+</script>
+</body>
+</html>

@@ -27,7 +27,7 @@ $("p, #demo") 组合选择器
 
 ---
 
-常用方法(单参获取，双参设置)
+常用方法(单参获取，双参设置)，链式调用
 
 1. 属性
     `attr()`
@@ -42,10 +42,15 @@ $("p, #demo") 组合选择器
 innertext和innerhtml对应的是text()和html()
 只有单参和无参
 
-
+一些方法
 .remove()
 .append()
 .replace()
 .hide()
 .show()
 .toggle()【相当于hide和show】
+
+
+.val()获取input中的值
+.text()获取非表单中的值
+.html()直接获取子标签，包含标签名

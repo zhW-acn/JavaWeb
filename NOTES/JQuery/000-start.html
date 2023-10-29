@@ -3,24 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="jquery-3.7.1.min.js"></script>
 </head>
 <body>
-<p id="p" class="p">p标签</p>
-<label>aaaa</label>
+<p>p标签</p>
+<p id="id">p标签——id</p>
+<p class="class">p标签——class</p>
 <script>
     // JQuery对象
-    var p1 = document.getElementById("p")
-    var p2 = $("#p")
+    // 1.document获取结点
+    var pdocument = document.getElementById("p")
+    // 2.JQuery方法
+    var pid = $("#id")
 
-    var p3 = $(p1)// DOM转Jquery
-    var p4 = p2[0]// JQuery转DOM
+    // document与JQuery对象相互转化
+    var pquery = $(pdocument)// DOM转Jquery
+    var pdocument2 = pquery[0]// JQuery转DOM
 
-    //p2.text()// 获取文本返回String
+
 
     // 选择器
-    //$("#p") id
-    //$(".p") class
+    $("p") // 标签选择
+    $("#p") // id选择
+    $(".p") // class选择
+
+    // 事件
+    // pid.bind('click',function(){
+    //     alert('点击事件')
+    // })
+    pid.click(function () {
+        alert("点击事件")
+    })
+    // 类似的还有：
+    pid.dblclick()// 双击
+    pid.mouseenter() // 鼠标进入
+    pid.mouseleave() // 鼠标移除
+    pid.mousedown() // 鼠标按下
+    pid.mouseup() // 松开鼠标
+    pid.hover() // 悬停
+    pid.blur() // 失去焦点
 
 </script>
 </body>
