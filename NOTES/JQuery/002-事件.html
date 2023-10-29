@@ -3,42 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <title>校验练习</title>
+    <style>
+        .d2, .d3, .d4 {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-<input type="text" name="name" id="name">
-<input type="password" name="passwd" id="passwd">
-<input type="text" name="phone" id="phone">
-
+<div class="d1">
+    <input id="name" type="text" name="name" placeholder="用户名">
+</div>
+<div class="d2">
+    <input id="passwd" type="password" name="passwd" placeholder="密码">
+</div>
+<div class="d3">
+    <input id="phone" type="text" name="phone" placeholder="手机号">
+</div>
+<div class="d4">
+    注册成功
+</div>
 <script src="jquery-3.7.1.min.js"></script>
 <script>
     /*  用户名规则：只能是小写字母，长度在[6,8]
           密码规则：只能是大写字母或数字，长度在[6,10]
           手机号规则：1开头，345789为第二个数字，总长度11位*/
-    $('#name').bind('blur', function () {
+    $('#name').blur(function () {
         var reg = /^[a-z]{6,8}$/
-        if(reg.test($(this).val())!==true){
-            alert('错误的输出')
+        if (regtest(reg, $(this).val()) === true) {
+            $('.d2').show()
         }
     })
 
     $('#passwd').blur(function () {
         var reg = /^[A-Z|0123456789]{6,10}$/
-        if (reg.test($(this).val()) !== true) {
-            alert('错误的输出')
+        if (regtest(reg, $(this).val()) === true) {
+            $('.d3').show()
         }
     })
 
     $('#phone').blur(function () {
         var reg = /^1([345789])[0-9]{9}$/
-        if (reg.test($(this).val()) !== true) {
-            alert('错误的输出')
+        if (regtest(reg, $(this).val()) === true) {
+            $('.d4').show()
         }
     })
 
 
-    $(function (){
-
-    })
+    function regtest(reg, input) {
+        if (reg.test(input) !== true) {
+            alert('错误的输出')
+            return false
+        }
+        return true
+    }
 </script>
 </body>
 </html>
