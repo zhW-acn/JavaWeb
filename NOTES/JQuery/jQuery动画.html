@@ -1,0 +1,2160 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>jQuery动画</title><style>@import url(http://fonts.googleapis.com/css?family=Inconsolata);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700);
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+}
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+[hidden] {
+  display: none;
+}
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 70%;
+  -ms-text-size-adjust: 70%;
+}
+body {
+  margin: 0;
+}
+
+a:focus {
+  outline: thin dotted;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+h1 {
+  font-size: 2em;
+}
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+b,
+strong {
+  font-weight: bold;
+}
+dfn {
+  font-style: italic;
+}
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+pre,code,p code,li code{font-family:Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace}
+
+pre{-webkit-border-radius:0.4em;-moz-border-radius:0.4em;-ms-border-radius:0.4em;-o-border-radius:0.4em;border-radius:0.4em;border:1px dashed #FAEBD7;line-height:1.7em;font-size:13px;margin-bottom:2.1em;padding:.8em 1em;color:#586e75;overflow:auto; background-color:#F5FFFA;}
+
+p code,li code{display:inline-block;white-space:no-wrap;background:#fff;font-size:0.9rem;line-height:1.7em;color:#555;border:1px solid #ddd;-webkit-border-radius:0.4em;-moz-border-radius:0.4em;-ms-border-radius:0.4em;-o-border-radius:0.4em;border-radius:0.4em;padding:0.3em;margin:-1px 4px;}
+p pre code,li pre code{font-size:0.9rem !important;background:none;border:none}
+
+p, li {
+  line-height:1.7em;
+  font-family: "Nunito","HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial;
+}
+li {
+  font-family: "Nunito","HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial;
+  line-height:1.5em;
+}
+kbd,
+samp {
+  font-family: monospace, serif;
+  font-size: 13px;
+}
+
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+img {
+  border: 0;
+  max-width: 100%;
+  padding: 0.8em 0em;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+figure {
+  margin: 0;
+}
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+legend {
+  border: 0;
+  padding: 0;
+}
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+}
+button,
+input {
+  line-height: normal;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+html {
+  font-family: 'PT Sans', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-weight: 700;
+}
+html {
+  color: #657b83;
+  margin: 1em;
+}
+body {
+  width: 70%;
+  color: #657b83;
+  margin: 0 auto;
+  max-width: 30cm;  /*  原始: 23cm   */
+  padding: 1em; /*  原始: 1em   */
+}
+
+a {
+  color: #b58900;
+}
+a:visited {
+  color: #cb4b16;
+}
+a:hover {
+  color: #cb4b16;
+}
+h1 {
+  color: #d33682;
+}
+h2 {
+  color:#d36c9e;
+}
+h3 {
+  color:#7fbfca;
+}
+h4 {
+  color:#0ab198
+}
+h5 {
+  color: #859900;
+}
+h6 {
+  color: #009926;
+}
+/* pre {
+  background-color: #fdf6e3;
+  color: #657b83;
+  border: 1pt solid #93a1a1;
+  padding: 1em;
+  box-shadow: 5pt 5pt 8pt #eee8d5;
+} */
+
+h1 {
+  font-size: 1.8em;
+}
+h2 {
+  font-size: 1.6em;
+}
+h3 {
+  font-size: 1.4em;
+}
+h4 {
+  font-size: 1.2em;
+}
+h5 {
+  font-size: 1.15em;
+}
+h6 {
+  font-size: 1.15em;
+}
+
+table {
+
+  overflow: auto;
+  box-shadow: 5pt 5pt 8pt #eee8d5;
+}
+
+table th {
+  font-weight: bold;
+  background:#EEE8D6;
+}
+
+table th,
+table td {
+  padding: 6px 13px;
+  border: 1px solid #C7CAC1;
+}
+
+table tr {
+  border-top: 1px solid #C7CAC1;
+}
+
+table tr:nth-child(2n) {
+}
+table td{ word-wrap: break-word !important; word-break: break-all !important; }
+
+.tag {
+  color: #d33682;
+  padding: 0 0.2em;
+}
+.todo,
+.next,
+.done {
+  color: #fdf6e3;
+  background-color: #dc322f;
+  padding: 0 0.2em;
+}
+.tag {
+  -webkit-border-radius: 0.35em;
+  -moz-border-radius: 0.35em;
+  border-radius: 0.35em;
+}
+.TODO {
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  border-radius: 0.2em;
+  background-color: #2aa198;
+}
+.NEXT {
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  border-radius: 0.2em;
+  background-color: #268bd2;
+}
+.ACTIVE {
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  border-radius: 0.2em;
+  background-color: #268bd2;
+}
+.DONE {
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  border-radius: 0.2em;
+  background-color: #859900;
+}
+.WAITING {
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  border-radius: 0.2em;
+  background-color: #cb4b16;
+}
+.HOLD {
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  border-radius: 0.2em;
+  background-color: #d33682;
+}
+.NOTE {
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  border-radius: 0.2em;
+  background-color: #d33682;
+}
+.CANCELLED {
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  border-radius: 0.2em;
+  background-color: #859900;
+}
+
+@media (max-width: 540px) {
+  html{margin: 0 auto; padding: 4px;}
+}
+/*
+
+Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmail.com>
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #F5FFFA;
+  color: #657b83;
+  -webkit-text-size-adjust: none;
+}
+
+.hljs-comment,
+.diff .hljs-header,
+.hljs-doctype,
+.hljs-pi,
+.lisp .hljs-string,
+.hljs-javadoc {
+  color: #93a1a1;
+}
+
+/* Solarized Green */
+.hljs-keyword,
+.hljs-winutils,
+.method,
+.hljs-addition,
+.css .hljs-tag,
+.hljs-request,
+.hljs-status,
+.nginx .hljs-title {
+  color: #859900;
+}
+
+/* Solarized Cyan */
+.hljs-number,
+.hljs-command,
+.hljs-string,
+.hljs-tag .hljs-value,
+.hljs-rules .hljs-value,
+.hljs-phpdoc,
+.hljs-dartdoc,
+.tex .hljs-formula,
+.hljs-regexp,
+.hljs-hexcolor,
+.hljs-link_url {
+  color: #2aa198;
+}
+
+/* Solarized Blue */
+.hljs-title,
+.hljs-localvars,
+.hljs-chunk,
+.hljs-decorator,
+.hljs-built_in,
+.hljs-identifier,
+.vhdl .hljs-literal,
+.hljs-id,
+.css .hljs-function {
+  color: #268bd2;
+}
+
+/* Solarized Yellow */
+.hljs-attribute,
+.hljs-variable,
+.lisp .hljs-body,
+.smalltalk .hljs-number,
+.hljs-constant,
+.hljs-class .hljs-title,
+.hljs-parent,
+.hljs-type,
+.hljs-link_reference {
+  color: #b58900;
+}
+
+/* Solarized Orange */
+.hljs-preprocessor,
+.hljs-preprocessor .hljs-keyword,
+.hljs-pragma,
+.hljs-shebang,
+.hljs-symbol,
+.hljs-symbol .hljs-string,
+.diff .hljs-change,
+.hljs-special,
+.hljs-attr_selector,
+.hljs-subst,
+.hljs-cdata,
+.css .hljs-pseudo,
+.hljs-header {
+  color: #cb4b16;
+}
+
+/* Solarized Red */
+.hljs-deletion,
+.hljs-important {
+  color: #dc322f;
+}
+
+/* Solarized Violet */
+.hljs-link_label {
+  color: #6c71c4;
+}
+
+.tex .hljs-formula {
+  background: #eee8d5;
+}
+
+
+/* PrismJS 1.14.0
+https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript */
+/**
+ * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
+ * Based on https://github.com/chriskempson/tomorrow-theme
+ * @author Rose Pritchard
+ */
+
+ code[class*="language-"],
+ pre[class*="language-"] {
+   color: rgb(3, 185, 176);
+   background: none;
+   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+   text-align: left;
+   white-space: pre;
+   word-spacing: normal;
+   word-break: normal;
+   word-wrap: normal;
+   line-height: 1.5;
+ 
+   -moz-tab-size: 4;
+   -o-tab-size: 4;
+   tab-size: 4;
+ 
+   -webkit-hyphens: none;
+   -moz-hyphens: none;
+   -ms-hyphens: none;
+   hyphens: none;
+ 
+ }
+ 
+ /* Code blocks */
+ pre[class*="language-"] {
+   padding: 1em;
+   margin: .5em 0;
+   overflow: auto;
+ }
+ 
+ :not(pre) > code[class*="language-"],
+ pre[class*="language-"] {
+   background: #e8f5f3a4;
+ }
+ 
+ /* Inline code */
+ :not(pre) > code[class*="language-"] {
+   padding: .1em;
+   border-radius: .3em;
+   white-space: normal;
+ }
+ 
+ .token.comment,
+ .token.block-comment,
+ .token.prolog,
+ .token.doctype,
+ .token.cdata {
+   color: #999;
+ }
+ 
+ .token.punctuation {
+   color: #e2777be3;
+ }
+ 
+ .token.tag,
+ .token.attr-name,
+ .token.namespace,
+ .token.deleted {
+   color: #e2777be3;
+ }
+ 
+ .token.function-name {
+   color: #6196cc;
+ }
+ 
+ .token.boolean,
+ .token.number,
+ .token.function {
+   color: #f08d49;
+ }
+ 
+ .token.property,
+ .token.class-name,
+ .token.constant,
+ .token.symbol {
+   color: #f8c555;
+ }
+ 
+ .token.selector,
+ .token.important,
+ .token.atrule,
+ .token.keyword,
+ .token.builtin {
+   color: #cc99cd;
+ }
+ 
+ .token.string,
+ .token.char,
+ .token.attr-value,
+ .token.regex,
+ .token.variable {
+   color: #7ec699;
+ }
+ 
+ .token.operator,
+ .token.entity,
+ .token.url {
+   color: #67cdcc;
+ }
+ 
+ .token.important,
+ .token.bold {
+   font-weight: bold;
+ }
+ .token.italic {
+   font-style: italic;
+ }
+ 
+ .token.entity {
+   cursor: help;
+ }
+ 
+ .token.inserted {
+   color: green;
+ }
+ 
+ pre[class*="language-"].line-numbers {
+     position: relative;
+     padding-left: 3.8em;
+     counter-reset: linenumber;
+ }
+ 
+ pre[class*="language-"].line-numbers > code {
+     position: relative;
+     white-space: inherit;
+ }
+ 
+ .line-numbers .line-numbers-rows {
+     position: absolute;
+     pointer-events: none;
+     top: 0;
+     font-size: 100%;
+     left: -3.8em;
+     width: 3em; /* works for line-numbers below 1000 lines */
+     letter-spacing: -1px;
+     border-right: 1px solid #999;
+ 
+     -webkit-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+ 
+ }
+ 
+     .line-numbers-rows > span {
+         pointer-events: none;
+         display: block;
+         counter-increment: linenumber;
+     }
+ 
+         .line-numbers-rows > span:before {
+             content: counter(linenumber);
+             color: #999;
+             display: block;
+             padding-right: 0.8em;
+             text-align: right;
+         }
+ 
+.markdown-body blockquote {
+  font-style: italic;
+  position: relative;
+  font-size: 1.1em;
+  line-height: 1.4em;
+  padding-left: 0.5em;
+  font-family: georgia,serif;
+  color: #000b0c4e;
+  /* border-left: 5px solid rgba(170,170,170,0.5); */
+}
+
+blockquote:before {
+  content: "\201C";
+  padding-bottom: 3px;
+  font-size: 35px;
+  margin-left: -20px;
+  font-family: georgia,serif;
+  color: rgba(170,170,170,1.0);
+}</style><style>.mweb-charts{background:#fff;}
+body{ box-sizing: border-box;
+    margin: 0 auto;
+    padding: 28px}
+@media print{
+    pre, code, pre code {
+     overflow: visible !important;
+     white-space: pre-wrap !important;       /* css-3 */
+     white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+     white-space: -pre-wrap !important;      /* Opera 4-6 */
+     white-space: -o-pre-wrap !important;    /* Opera 7 */
+     word-wrap: break-word !important;       /* Internet Explorer 5.5+ */
+    }
+    html,body{margin:0;padding:4px;}
+}
+
+
+
+div.code-toolbar {
+  position: relative;
+}
+
+div.code-toolbar > .toolbar {
+  position: absolute;
+  z-index: 10;
+  top: .3em;
+  right: .2em;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+div.code-toolbar:hover > .toolbar {
+  opacity: 1;
+}
+
+/* Separate line b/c rules are thrown out if selector is invalid.
+   IE11 and old Edge versions don't support :focus-within. */
+div.code-toolbar:focus-within > .toolbar {
+  opacity: 1;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item {
+  display: inline-block;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > a {
+  cursor: pointer;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > button {
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  -webkit-user-select: none; /* for button */
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > a,
+div.code-toolbar > .toolbar > .toolbar-item > button,
+div.code-toolbar > .toolbar > .toolbar-item > span {
+  color: inherit;
+  font-size: .8em;
+  padding: 4px .5em;
+  background: #f5f2f0;
+  background: rgba(224, 224, 224, 0.4);
+  box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+  border-radius: .5em;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > a:hover,
+div.code-toolbar > .toolbar > .toolbar-item > a:focus,
+div.code-toolbar > .toolbar > .toolbar-item > button:hover,
+div.code-toolbar > .toolbar > .toolbar-item > button:focus,
+div.code-toolbar > .toolbar > .toolbar-item > span:hover,
+div.code-toolbar > .toolbar > .toolbar-item > span:focus {
+  color: inherit;
+  text-decoration: none;
+}
+</style><script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script><script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script><script>!function(){if("undefined"!=typeof Prism&&"undefined"!=typeof document){var e=[],t={},n=function(){};Prism.plugins.toolbar={};var a=Prism.plugins.toolbar.registerButton=function(n,a){var r;r="function"==typeof a?a:function(e){var t;return"function"==typeof a.onClick?((t=document.createElement("button")).type="button",t.addEventListener("click",(function(){a.onClick.call(this,e)}))):"string"==typeof a.url?(t=document.createElement("a")).href=a.url:t=document.createElement("span"),a.className&&t.classList.add(a.className),t.textContent=a.text,t},n in t?console.warn('There is a button with the key "'+n+'" registered already.'):e.push(t[n]=r)},r=Prism.plugins.toolbar.hook=function(a){var r=a.element.parentNode;var l=a.element.classList;if(l.contains('language-mermaid') || l.contains('language-echarts') || l.contains('language-plantuml')){return;} if(r&&/pre/i.test(r.nodeName)&&!r.parentNode.classList.contains("code-toolbar")){var o=document.createElement("div");o.classList.add("code-toolbar"),r.parentNode.insertBefore(o,r),o.appendChild(r);var i=document.createElement("div");i.classList.add("toolbar");var l=e,d=function(e){for(;e;){var t=e.getAttribute("data-toolbar-order");if(null!=t)return(t=t.trim()).length?t.split(/\s*,\s*/g):[];e=e.parentElement}}(a.element);d&&(l=d.map((function(e){return t[e]||n}))),l.forEach((function(e){var t=e(a);if(t){var n=document.createElement("div");n.classList.add("toolbar-item"),n.appendChild(t),i.appendChild(n)}})),o.appendChild(i)}};a("label",(function(e){var t=e.element.parentNode;if(t&&/pre/i.test(t.nodeName)&&t.hasAttribute("data-label")){var n,a,r=t.getAttribute("data-label");try{a=document.querySelector("template#"+r)}catch(e){}return a?n=a.content:(t.hasAttribute("data-url")?(n=document.createElement("a")).href=t.getAttribute("data-url"):n=document.createElement("span"),n.textContent=r),n}})),Prism.hooks.add("complete",r)}}();</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css"><script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script><style>div.code-toolbar > .toolbar > .toolbar-item > a, div.code-toolbar > .toolbar > .toolbar-item > button, div.code-toolbar > .toolbar > .toolbar-item > span {padding: 4px .5em; background: #f5f2f0; background: rgba(224, 224, 224, 0.4);}</style> </head><body><div id='markdown_content' class='markdown-body'><h1><a id="jquery%E5%8A%A8%E7%94%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>jQuery动画</h1>
+<h2><a id="%E5%89%8D%E8%A8%80" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>前言</h2>
+<p>jQuery 之所以能后成为JavaScript当前最流行的库之一，动画效果也是其中的一个重要因素。通过jQuery的动画方法，能够轻松地为网页添加视觉效果，给用户一种全新的体验。</p>
+<h2><a id="%E9%9A%90%E8%97%8F%E4%B8%8E%E6%98%BE%E7%A4%BA" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>隐藏与显示</h2>
+<p>在jQuery中，<strong>隐藏</strong>可以通过 <code>hide()</code> 方法来实现；<strong>显示</strong>则可以通过 <code>show()</code> 来实现，show() 方法和 hide() 方法是 jQuery 中最基本的动画方法。</p>
+<ul>
+<li>
+<p><em><strong>show</strong></em> ：show( ) 方法会将隐藏的元素显示出来，它会 <strong>将元素的 display 属性设置为 hide( ) 前的属性值</strong>；</p>
+</li>
+<li>
+<p><em><strong>hide</strong></em> ：hide( ) 方法会<strong>记住原来的 display 属性值</strong>，并将元素的属性 <strong>设置为 <code>display: none</code></strong>，即将元素隐藏。</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>注意：</strong><br />
+display 属性值是保存在 jQuery 的数据缓存中，所以 display 可以方便以后可以恢复到其初始值。假如一个元素的 display 属性值为 inline，那么当它隐藏后再显示时，这个元素将再次显示为 inline 模式。</p>
+</blockquote>
+<h3><a id="hide" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>hide( )</h3>
+<p>隐藏，函数如下：</p>
+<pre><code class="language-javascript">hide([duration][,easing][,callback])
+</code></pre>
+<p>参数说明</p>
+<p><em><strong>duration</strong></em>：即设置隐藏效果的持续的时间。接受Number和String类型的值（默认值：400ms）：</p>
+<pre><code class="language-plain_text">1. 毫秒 （ms）
+2. &quot;slow&quot; (相当于 200ms)
+3. &quot;fast&quot; （相当于 600ms）
+</code></pre>
+<p><em><strong>easing</strong></em>：设置动画在不同点上的速度，接受String类型的值：</p>
+<pre><code class="language-plain_text">1. &quot;swing&quot; (默认值。在开始和结尾移动较慢慢，在中间移动较快)
+2. &quot;linear&quot; （匀速运动）
+</code></pre>
+<p><figure><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAkACQAAD/4QB0RXhpZgAATU0AKgAAAAgABAEaAAUAAAAB
+AAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdpAAQAAAABAAAATgAAAAAAAACQ
+AAAAAQAAAJAAAAABAAKgAgAEAAAAAQAAATygAwAEAAAAAQAAAagAAAAA/+0AOFBo
+b3Rvc2hvcCAzLjAAOEJJTQQEAAAAAAAAOEJJTQQlAAAAAAAQ1B2M2Y8AsgTpgAmY
+7PhCfv/iD6xJQ0NfUFJPRklMRQABAQAAD5xhcHBsAhAAAG1udHJSR0IgWFlaIAfi
+AAkAGgARAAwAN2Fjc3BBUFBMAAAAAEFQUEwAAAAAAAAAAAAAAAAAAAAAAAD21gAB
+AAAAANMtYXBwbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAEWRlc2MAAAFQAAAAYmRzY20AAAG0AAAEhGNwcnQAAAY4AAAAI3d0
+cHQAAAZcAAAAFHJYWVoAAAZwAAAAFGdYWVoAAAaEAAAAFGJYWVoAAAaYAAAAFHJU
+UkMAAAasAAAIDGFhcmcAAA64AAAAIHZjZ3QAAA7YAAAAMG5kaW4AAA8IAAAAPmNo
+YWQAAA9IAAAALG1tb2QAAA90AAAAKGJUUkMAAAasAAAIDGdUUkMAAAasAAAIDGFh
+YmcAAA64AAAAIGFhZ2cAAA64AAAAIGRlc2MAAAAAAAAACERpc3BsYXkAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABtbHVjAAAAAAAAACYAAAAMaHJIUgAA
+ABQAAAHYa29LUgAAAAwAAAHsbmJOTwAAABIAAAH4aWQAAAAAABIAAAIKaHVIVQAA
+ABQAAAIcY3NDWgAAABYAAAIwZGFESwAAABwAAAJGbmxOTAAAABYAAAJiZmlGSQAA
+ABAAAAJ4aXRJVAAAABQAAAKIZXNFUwAAABIAAAKccm9STwAAABIAAAKcZnJDQQAA
+ABYAAAKuYXIAAAAAABQAAALEdWtVQQAAABwAAALYaGVJTAAAABYAAAL0emhUVwAA
+AAwAAAMKdmlWTgAAAA4AAAMWc2tTSwAAABYAAAMkemhDTgAAAAwAAAMKcnVSVQAA
+ACQAAAM6ZW5HQgAAABQAAANeZnJGUgAAABYAAANybXMAAAAAABIAAAOIaGlJTgAA
+ABIAAAOadGhUSAAAAAwAAAOsY2FFUwAAABgAAAO4ZW5BVQAAABQAAANeZXNYTAAA
+ABIAAAKcZGVERQAAABAAAAPQZW5VUwAAABIAAAPgcHRCUgAAABgAAAPycGxQTAAA
+ABIAAAQKZWxHUgAAACIAAAQcc3ZTRQAAABAAAAQ+dHJUUgAAABQAAAROcHRQVAAA
+ABYAAARiamFKUAAAAAwAAAR4AEwAQwBEACAAdQAgAGIAbwBqAGnO7LfsACAATABD
+AEQARgBhAHIAZwBlAC0ATABDAEQATABDAEQAIABXAGEAcgBuAGEAUwB6AO0AbgBl
+AHMAIABMAEMARABCAGEAcgBlAHYAbgD9ACAATABDAEQATABDAEQALQBmAGEAcgB2
+AGUAcwBrAOYAcgBtAEsAbABlAHUAcgBlAG4ALQBMAEMARABWAOQAcgBpAC0ATABD
+AEQATABDAEQAIABjAG8AbABvAHIAaQBMAEMARAAgAGMAbwBsAG8AcgBBAEMATAAg
+AGMAbwB1AGwAZQB1AHIgDwBMAEMARAAgBkUGRAZIBkYGKQQaBD4EOwRMBD4EQAQ+
+BDIEOAQ5ACAATABDAEQgDwBMAEMARAAgBeYF0QXiBdUF4AXZX2mCcgAgAEwAQwBE
+AEwAQwBEACAATQDgAHUARgBhAHIAZQBiAG4A/QAgAEwAQwBEBCYEMgQ1BEIEPQQ+
+BDkAIAQWBBoALQQ0BDgEQQQ/BDsENQQ5AEMAbwBsAG8AdQByACAATABDAEQATABD
+AEQAIABjAG8AdQBsAGUAdQByAFcAYQByAG4AYQAgAEwAQwBECTAJAgkXCUAJKAAg
+AEwAQwBEAEwAQwBEACAOKg41AEwAQwBEACAAZQBuACAAYwBvAGwAbwByAEYAYQBy
+AGIALQBMAEMARABDAG8AbABvAHIAIABMAEMARABMAEMARAAgAEMAbwBsAG8AcgBp
+AGQAbwBLAG8AbABvAHIAIABMAEMARAOIA7MDxwPBA8kDvAO3ACADvwO4A8wDvQO3
+ACAATABDAEQARgDkAHIAZwAtAEwAQwBEAFIAZQBuAGsAbABpACAATABDAEQATABD
+AEQAIABhACAAQwBvAHIAZQBzMKsw6TD8AEwAQwBEdGV4dAAAAABDb3B5cmlnaHQg
+QXBwbGUgSW5jLiwgMjAxOAAAWFlaIAAAAAAAAPMWAAEAAAABFspYWVogAAAAAAAA
+ccAAADmKAAABZ1hZWiAAAAAAAABhIwAAueYAABP2WFlaIAAAAAAAACPyAAAMkAAA
+vdBjdXJ2AAAAAAAABAAAAAAFAAoADwAUABkAHgAjACgALQAyADYAOwBAAEUASgBP
+AFQAWQBeAGMAaABtAHIAdwB8AIEAhgCLAJAAlQCaAJ8AowCoAK0AsgC3ALwAwQDG
+AMsA0ADVANsA4ADlAOsA8AD2APsBAQEHAQ0BEwEZAR8BJQErATIBOAE+AUUBTAFS
+AVkBYAFnAW4BdQF8AYMBiwGSAZoBoQGpAbEBuQHBAckB0QHZAeEB6QHyAfoCAwIM
+AhQCHQImAi8COAJBAksCVAJdAmcCcQJ6AoQCjgKYAqICrAK2AsECywLVAuAC6wL1
+AwADCwMWAyEDLQM4A0MDTwNaA2YDcgN+A4oDlgOiA64DugPHA9MD4APsA/kEBgQT
+BCAELQQ7BEgEVQRjBHEEfgSMBJoEqAS2BMQE0wThBPAE/gUNBRwFKwU6BUkFWAVn
+BXcFhgWWBaYFtQXFBdUF5QX2BgYGFgYnBjcGSAZZBmoGewaMBp0GrwbABtEG4wb1
+BwcHGQcrBz0HTwdhB3QHhgeZB6wHvwfSB+UH+AgLCB8IMghGCFoIbgiCCJYIqgi+
+CNII5wj7CRAJJQk6CU8JZAl5CY8JpAm6Cc8J5Qn7ChEKJwo9ClQKagqBCpgKrgrF
+CtwK8wsLCyILOQtRC2kLgAuYC7ALyAvhC/kMEgwqDEMMXAx1DI4MpwzADNkM8w0N
+DSYNQA1aDXQNjg2pDcMN3g34DhMOLg5JDmQOfw6bDrYO0g7uDwkPJQ9BD14Peg+W
+D7MPzw/sEAkQJhBDEGEQfhCbELkQ1xD1ERMRMRFPEW0RjBGqEckR6BIHEiYSRRJk
+EoQSoxLDEuMTAxMjE0MTYxODE6QTxRPlFAYUJxRJFGoUixStFM4U8BUSFTQVVhV4
+FZsVvRXgFgMWJhZJFmwWjxayFtYW+hcdF0EXZReJF64X0hf3GBsYQBhlGIoYrxjV
+GPoZIBlFGWsZkRm3Gd0aBBoqGlEadxqeGsUa7BsUGzsbYxuKG7Ib2hwCHCocUhx7
+HKMczBz1HR4dRx1wHZkdwx3sHhYeQB5qHpQevh7pHxMfPh9pH5Qfvx/qIBUgQSBs
+IJggxCDwIRwhSCF1IaEhziH7IiciVSKCIq8i3SMKIzgjZiOUI8Ij8CQfJE0kfCSr
+JNolCSU4JWgllyXHJfcmJyZXJocmtyboJxgnSSd6J6sn3CgNKD8ocSiiKNQpBik4
+KWspnSnQKgIqNSpoKpsqzysCKzYraSudK9EsBSw5LG4soizXLQwtQS12Last4S4W
+Lkwugi63Lu4vJC9aL5Evxy/+MDUwbDCkMNsxEjFKMYIxujHyMioyYzKbMtQzDTNG
+M38zuDPxNCs0ZTSeNNg1EzVNNYc1wjX9Njc2cjauNuk3JDdgN5w31zgUOFA4jDjI
+OQU5Qjl/Obw5+To2OnQ6sjrvOy07azuqO+g8JzxlPKQ84z0iPWE9oT3gPiA+YD6g
+PuA/IT9hP6I/4kAjQGRApkDnQSlBakGsQe5CMEJyQrVC90M6Q31DwEQDREdEikTO
+RRJFVUWaRd5GIkZnRqtG8Ec1R3tHwEgFSEtIkUjXSR1JY0mpSfBKN0p9SsRLDEtT
+S5pL4kwqTHJMuk0CTUpNk03cTiVObk63TwBPSU+TT91QJ1BxULtRBlFQUZtR5lIx
+UnxSx1MTU19TqlP2VEJUj1TbVShVdVXCVg9WXFapVvdXRFeSV+BYL1h9WMtZGllp
+WbhaB1pWWqZa9VtFW5Vb5Vw1XIZc1l0nXXhdyV4aXmxevV8PX2Ffs2AFYFdgqmD8
+YU9homH1YklinGLwY0Njl2PrZEBklGTpZT1lkmXnZj1mkmboZz1nk2fpaD9olmjs
+aUNpmmnxakhqn2r3a09rp2v/bFdsr20IbWBtuW4SbmtuxG8eb3hv0XArcIZw4HE6
+cZVx8HJLcqZzAXNdc7h0FHRwdMx1KHWFdeF2Pnabdvh3VnezeBF4bnjMeSp5iXnn
+ekZ6pXsEe2N7wnwhfIF84X1BfaF+AX5ifsJ/I3+Ef+WAR4CogQqBa4HNgjCCkoL0
+g1eDuoQdhICE44VHhauGDoZyhteHO4efiASIaYjOiTOJmYn+imSKyoswi5aL/Ixj
+jMqNMY2Yjf+OZo7OjzaPnpAGkG6Q1pE/kaiSEZJ6kuOTTZO2lCCUipT0lV+VyZY0
+lp+XCpd1l+CYTJi4mSSZkJn8mmia1ZtCm6+cHJyJnPedZJ3SnkCerp8dn4uf+qBp
+oNihR6G2oiailqMGo3aj5qRWpMelOKWpphqmi6b9p26n4KhSqMSpN6mpqhyqj6sC
+q3Wr6axcrNCtRK24ri2uoa8Wr4uwALB1sOqxYLHWskuywrM4s660JbSctRO1irYB
+tnm28Ldot+C4WbjRuUq5wro7urW7LrunvCG8m70VvY++Cr6Evv+/er/1wHDA7MFn
+wePCX8Lbw1jD1MRRxM7FS8XIxkbGw8dBx7/IPci8yTrJuco4yrfLNsu2zDXMtc01
+zbXONs62zzfPuNA50LrRPNG+0j/SwdNE08bUSdTL1U7V0dZV1tjXXNfg2GTY6Nls
+2fHadtr724DcBdyK3RDdlt4c3qLfKd+v4DbgveFE4cziU+Lb42Pj6+Rz5PzlhOYN
+5pbnH+ep6DLovOlG6dDqW+rl63Dr++yG7RHtnO4o7rTvQO/M8Fjw5fFy8f/yjPMZ
+86f0NPTC9VD13vZt9vv3ivgZ+Kj5OPnH+lf65/t3/Af8mP0p/br+S/7c/23//3Bh
+cmEAAAAAAAMAAAACZmYAAPKnAAANWQAAE9AAAApbdmNndAAAAAAAAAABAAEAAAAA
+AAAAAQAAAAEAAAAAAAAAAQAAAAEAAAAAAAAAAQAAbmRpbgAAAAAAAAA2AACnQAAA
+VYAAAEzAAACewAAAJYAAAAzAAABQAAAAVEAAAjMzAAIzMwACMzMAAAAAAAAAAHNm
+MzIAAAAAAAEMcgAABfj///MdAAAHugAA/XL///ud///9pAAAA9kAAMBxbW1vZAAA
+AAAAAAYQAACgKgAAAADPPBmAAAAAAAAAAAAAAAAAAAAAAP/AABEIAagBPAMBIgAC
+EQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMD
+AgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKC
+CQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2
+d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK
+0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAA
+AAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFR
+B2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RF
+RkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqi
+o6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T1
+9vf4+fr/2wBDAAEBAQEBAQEBAQECAQEBAgMCAgICAwQDAwMDAwQEBAQEBAQEBAQE
+BAQEBAQFBQUFBQUGBgYGBgcHBwcHBwcHBwf/2wBDAQEBAQICAgMCAgMHBQQFBwcH
+BwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwf/
+3QAEABT/2gAMAwEAAhEDEQA/AP7+KKKKACiiigAooooAKKKKACiiigAooooAKKKK
+ACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKK
+ACiiigD/0P7+KKKKACiiigAor4//AGnP29P2Uv2P4bT/AIX38XbDwfqV/gw6fGsl
+3eEEEhjb2yTTIhA4dlCn1r4x8Pf8F5P+Camu6pb6XJ8bZ9Ia7cRxy3OlaiIyzHAy
+wtSFGe7YA71NOam7QdypwcVeSsfsdRX5ufFX/grj/wAE/vgr4ltPCXxF+PUWja1f
+6fDqkCxabqF1HJa3BYRyJLBayRMGKN0bIxzX1nF+0f8ABmb4FRftKJ41h/4UvNo6
+68usmOUL9idBIr+UUEwYqR+72b8nG3PFVP3YSqS0jHd9Fvu+mz+5kx96UYR1b2XV
++nfdHuFFfCP7N/8AwUt/Yu/a18cz/Df4CfGOPxt4zt7Rr1rI2N7aMYU+8ym5t4Vb
+b3AJI9Kzv2g/+Cof7D/7LXxFvfhP8cPjSng7x7p9tFdzWI0+/utkU4JQl7e2ljyQ
+DxuyO4pzXLy82nNt5+nfYIe9zcutt/L1+9H3/RX803/BTX4ufCLxZ49+EHxFtv8A
+gql8QP2QvC/xD8JQ6po+j+F5Netba/tZJZNt40VjGFV2xt/eKHwBxiv0x/Zz+PHw
+h/Z0/YH8AfGn4o/tOax8Z/hdZ2YuG+IGvJf3l7eJKxCtIsscl6xypGGTNTTf7udS
+p7vK7O/e7W+yemz16bhK/PTjT95SV012tfTv8vXY/SiivzG0T/gsd/wTk8ReFPF3
+jLS/2ktPbR/BSI96txaXlvcHzGVVEMEtuk9wcsM+Sj7RknABqH4Bf8Fhv2DP2j/i
+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
+s8I3kd/p9y+qanOIp4mDI/lzXrxsVYAjcpGa/T2inSk4T9rDSWmq3021306Cn70P
+Zy1j26a7nzJ+01+xz+zl+2JoHh/wx+0V8OIviHovha4e5sI3ubm1aGSQKHKvazQv
+8wRcgtjisT9mD9hf9lr9jVfFA/Zy+FsXw8bxmYjqLC7u7tpfJzsG66nnZANx4QgH
+vnivrailT9zmcNL726+v3BU99JT1S2v01vp89fU+Kf2m/wDgnf8Asgfti+KNB8Zf
+tFfCRPiD4j8M2P8AZ1lcNf31p5dvvaTZttbmFG+d2OSCeetdjqf7Fv7Nes/s56f+
+ybqPw4W4+AWlW6WsGg/a7sBY0LFR54nFycFjyZc19S0VPs48jp2916tdG9729dSu
+eXMp31Wz6rp+R8gfsw/sGfsqfsb3niS//Zz+FqfDy78WxrDqDre3l35qKQwH+lXE
+4XBUfdxXkfxg/wCCTH7Afx7+J3iT4x/Fb4DR+KfiL4unS51DUDqmpQGWSNEjVvLh
+vI4lwiKMKgHFfo3RVzbk05atKy8l2RMPdUlHRPfz9T8b/wDgsJ+0037EX7JfgjUv
+DXwp8NfE7wtrfiG18NXWgeJ4XubNrJra5kwFDq3mKYF2sScdetfyveMv+ClP7KFv
+8O/ENl8GP+CfPhPwL8WvE1hcWT61qDSaha2jXassk1tb3E0qCSPeWi3qwUgcYGK/
+0BvGXgXwb8Q9Gk8O+OfDVn4q0OZtzWt9EsseQCM4IODgkZ96+Zbb/gn1+xVaaomt
+W37NXhaLVEfzBMLXkN1z97H6Vz+ycpVPau/M9+traq/X7+pspxjGmqaty9Onk7ba
+bbdD+QD/AIIAfsi/E34q/ta6R+0le+Gp9O+FXwqEtydWmh2W9xqEhGyGAlQrMq7i
++z7mVzjcK/vErF0Dw5oHhXTYNH8NaNbaFpVsMR29pGsSD8FAFbVelicSpxhTirRi
+rL5u7ZwUaDjOdSTu5P8AIKKKK5DpCiiigAooooAKKKKACiiigAooooAKKKKACiii
+gAooooAKKKKACiiigD//0/7+KKKKACiiigAooooAKKKKACiiigAooooAKKKKACii
+igAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACii
+igD/1P7+KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACii
+igAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/1f7+KKKKACii
+igAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACii
+igAooooAKKKKACiiigAooooAKKKKACiiigD/1v7+KKKKACiiigAooooAKKKKACii
+igAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACii
+igAooooAKKKKACiiigD/1/7+KKKKACiiigAooooAKKKKACiiigAooooAKKKKACii
+igAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACii
+igD/0P7+KKKKACiigkAEngCgDnNa8U6R4es7q/1i8jsLWzQyO8jBQAPc1+GH7cf/
+AAX7/ZS/ZCSXS4PENh4h8VRMUNvKXZNw94jn9a/Mj/g49/4Km6j8A/CV58Gfhx4i
+S28QX+VkaCTDhGBHY5r/ADgPHXxK8WfEfVb3WfF+v3WtXt5I0mbhy/LHPegD+7f4
+mf8AB5b8QNBubpfh98BPA3iK1Qnymu5dRUt9dswr5lm/4PZP2zjPKtp+x58MJIEP
+ys1zquSP/Aqv4oUCDrksKFkUPhsqvfFAH9qJ/wCD239tMMVP7HHwv4/6edW/+Sab
+/wARt/7aH/RnXwv/APAnVv8A5Kr+LSdrQoDCTu96pfN7UAf2sf8AEbf+2f8A9Gd/
+C/8A8CdW/wDkqnJ/we2/tpOcD9jn4X/+BOrf/JVfxS/N7U9UZgeQDVJaMD+2CX/g
+9l/bSjCY/Y6+F5Ldf9K1X/5Jpf8AiNl/bQBBf9jv4XhSM/8AH1qv/wAk1/FZbva+
+Wy3JZnXpiosblZ1Pyg4ANZtPoa03Hqf2rp/wez/tnFm3fsd/DAJ2P2nVev8A4E0n
+/EbN+2gpIk/Y7+GC+n+k6tz/AOTVfxXxo7Dy3xtTkYpryoTuAOY+ma62opbGR/aj
+cf8AB7V+2XEqbP2PPhgznqDc6r/8lVU/4jcf20f+jOPhf/4E6t/8lV/FjOzOA/A3
+VX+b2rJw7Af2rf8AEbj+2j/0Zx8L/wDwJ1b/AOSqP+I3H9tH/ozj4X/+BOrf/JVf
+xU/N7UfN7VLjYD+1b/iNx/bR/wCjOPhf/wCBOrf/ACVR/wARuP7aP/RnHwv/APAn
+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
+igAooooAKKKKAP/Z" alt="" style="width:150px;" /></figure></p>
+<p><figure><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAkACQAAD/4QB0RXhpZgAATU0AKgAAAAgABAEaAAUAAAAB
+AAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdpAAQAAAABAAAATgAAAAAAAACQ
+AAAAAQAAAJAAAAABAAKgAgAEAAAAAQAAATagAwAEAAAAAQAAAa4AAAAA/+0AOFBo
+b3Rvc2hvcCAzLjAAOEJJTQQEAAAAAAAAOEJJTQQlAAAAAAAQ1B2M2Y8AsgTpgAmY
+7PhCfv/iD6xJQ0NfUFJPRklMRQABAQAAD5xhcHBsAhAAAG1udHJSR0IgWFlaIAfi
+AAkAGgARAAwAN2Fjc3BBUFBMAAAAAEFQUEwAAAAAAAAAAAAAAAAAAAAAAAD21gAB
+AAAAANMtYXBwbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAEWRlc2MAAAFQAAAAYmRzY20AAAG0AAAEhGNwcnQAAAY4AAAAI3d0
+cHQAAAZcAAAAFHJYWVoAAAZwAAAAFGdYWVoAAAaEAAAAFGJYWVoAAAaYAAAAFHJU
+UkMAAAasAAAIDGFhcmcAAA64AAAAIHZjZ3QAAA7YAAAAMG5kaW4AAA8IAAAAPmNo
+YWQAAA9IAAAALG1tb2QAAA90AAAAKGJUUkMAAAasAAAIDGdUUkMAAAasAAAIDGFh
+YmcAAA64AAAAIGFhZ2cAAA64AAAAIGRlc2MAAAAAAAAACERpc3BsYXkAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABtbHVjAAAAAAAAACYAAAAMaHJIUgAA
+ABQAAAHYa29LUgAAAAwAAAHsbmJOTwAAABIAAAH4aWQAAAAAABIAAAIKaHVIVQAA
+ABQAAAIcY3NDWgAAABYAAAIwZGFESwAAABwAAAJGbmxOTAAAABYAAAJiZmlGSQAA
+ABAAAAJ4aXRJVAAAABQAAAKIZXNFUwAAABIAAAKccm9STwAAABIAAAKcZnJDQQAA
+ABYAAAKuYXIAAAAAABQAAALEdWtVQQAAABwAAALYaGVJTAAAABYAAAL0emhUVwAA
+AAwAAAMKdmlWTgAAAA4AAAMWc2tTSwAAABYAAAMkemhDTgAAAAwAAAMKcnVSVQAA
+ACQAAAM6ZW5HQgAAABQAAANeZnJGUgAAABYAAANybXMAAAAAABIAAAOIaGlJTgAA
+ABIAAAOadGhUSAAAAAwAAAOsY2FFUwAAABgAAAO4ZW5BVQAAABQAAANeZXNYTAAA
+ABIAAAKcZGVERQAAABAAAAPQZW5VUwAAABIAAAPgcHRCUgAAABgAAAPycGxQTAAA
+ABIAAAQKZWxHUgAAACIAAAQcc3ZTRQAAABAAAAQ+dHJUUgAAABQAAAROcHRQVAAA
+ABYAAARiamFKUAAAAAwAAAR4AEwAQwBEACAAdQAgAGIAbwBqAGnO7LfsACAATABD
+AEQARgBhAHIAZwBlAC0ATABDAEQATABDAEQAIABXAGEAcgBuAGEAUwB6AO0AbgBl
+AHMAIABMAEMARABCAGEAcgBlAHYAbgD9ACAATABDAEQATABDAEQALQBmAGEAcgB2
+AGUAcwBrAOYAcgBtAEsAbABlAHUAcgBlAG4ALQBMAEMARABWAOQAcgBpAC0ATABD
+AEQATABDAEQAIABjAG8AbABvAHIAaQBMAEMARAAgAGMAbwBsAG8AcgBBAEMATAAg
+AGMAbwB1AGwAZQB1AHIgDwBMAEMARAAgBkUGRAZIBkYGKQQaBD4EOwRMBD4EQAQ+
+BDIEOAQ5ACAATABDAEQgDwBMAEMARAAgBeYF0QXiBdUF4AXZX2mCcgAgAEwAQwBE
+AEwAQwBEACAATQDgAHUARgBhAHIAZQBiAG4A/QAgAEwAQwBEBCYEMgQ1BEIEPQQ+
+BDkAIAQWBBoALQQ0BDgEQQQ/BDsENQQ5AEMAbwBsAG8AdQByACAATABDAEQATABD
+AEQAIABjAG8AdQBsAGUAdQByAFcAYQByAG4AYQAgAEwAQwBECTAJAgkXCUAJKAAg
+AEwAQwBEAEwAQwBEACAOKg41AEwAQwBEACAAZQBuACAAYwBvAGwAbwByAEYAYQBy
+AGIALQBMAEMARABDAG8AbABvAHIAIABMAEMARABMAEMARAAgAEMAbwBsAG8AcgBp
+AGQAbwBLAG8AbABvAHIAIABMAEMARAOIA7MDxwPBA8kDvAO3ACADvwO4A8wDvQO3
+ACAATABDAEQARgDkAHIAZwAtAEwAQwBEAFIAZQBuAGsAbABpACAATABDAEQATABD
+AEQAIABhACAAQwBvAHIAZQBzMKsw6TD8AEwAQwBEdGV4dAAAAABDb3B5cmlnaHQg
+QXBwbGUgSW5jLiwgMjAxOAAAWFlaIAAAAAAAAPMWAAEAAAABFspYWVogAAAAAAAA
+ccAAADmKAAABZ1hZWiAAAAAAAABhIwAAueYAABP2WFlaIAAAAAAAACPyAAAMkAAA
+vdBjdXJ2AAAAAAAABAAAAAAFAAoADwAUABkAHgAjACgALQAyADYAOwBAAEUASgBP
+AFQAWQBeAGMAaABtAHIAdwB8AIEAhgCLAJAAlQCaAJ8AowCoAK0AsgC3ALwAwQDG
+AMsA0ADVANsA4ADlAOsA8AD2APsBAQEHAQ0BEwEZAR8BJQErATIBOAE+AUUBTAFS
+AVkBYAFnAW4BdQF8AYMBiwGSAZoBoQGpAbEBuQHBAckB0QHZAeEB6QHyAfoCAwIM
+AhQCHQImAi8COAJBAksCVAJdAmcCcQJ6AoQCjgKYAqICrAK2AsECywLVAuAC6wL1
+AwADCwMWAyEDLQM4A0MDTwNaA2YDcgN+A4oDlgOiA64DugPHA9MD4APsA/kEBgQT
+BCAELQQ7BEgEVQRjBHEEfgSMBJoEqAS2BMQE0wThBPAE/gUNBRwFKwU6BUkFWAVn
+BXcFhgWWBaYFtQXFBdUF5QX2BgYGFgYnBjcGSAZZBmoGewaMBp0GrwbABtEG4wb1
+BwcHGQcrBz0HTwdhB3QHhgeZB6wHvwfSB+UH+AgLCB8IMghGCFoIbgiCCJYIqgi+
+CNII5wj7CRAJJQk6CU8JZAl5CY8JpAm6Cc8J5Qn7ChEKJwo9ClQKagqBCpgKrgrF
+CtwK8wsLCyILOQtRC2kLgAuYC7ALyAvhC/kMEgwqDEMMXAx1DI4MpwzADNkM8w0N
+DSYNQA1aDXQNjg2pDcMN3g34DhMOLg5JDmQOfw6bDrYO0g7uDwkPJQ9BD14Peg+W
+D7MPzw/sEAkQJhBDEGEQfhCbELkQ1xD1ERMRMRFPEW0RjBGqEckR6BIHEiYSRRJk
+EoQSoxLDEuMTAxMjE0MTYxODE6QTxRPlFAYUJxRJFGoUixStFM4U8BUSFTQVVhV4
+FZsVvRXgFgMWJhZJFmwWjxayFtYW+hcdF0EXZReJF64X0hf3GBsYQBhlGIoYrxjV
+GPoZIBlFGWsZkRm3Gd0aBBoqGlEadxqeGsUa7BsUGzsbYxuKG7Ib2hwCHCocUhx7
+HKMczBz1HR4dRx1wHZkdwx3sHhYeQB5qHpQevh7pHxMfPh9pH5Qfvx/qIBUgQSBs
+IJggxCDwIRwhSCF1IaEhziH7IiciVSKCIq8i3SMKIzgjZiOUI8Ij8CQfJE0kfCSr
+JNolCSU4JWgllyXHJfcmJyZXJocmtyboJxgnSSd6J6sn3CgNKD8ocSiiKNQpBik4
+KWspnSnQKgIqNSpoKpsqzysCKzYraSudK9EsBSw5LG4soizXLQwtQS12Last4S4W
+Lkwugi63Lu4vJC9aL5Evxy/+MDUwbDCkMNsxEjFKMYIxujHyMioyYzKbMtQzDTNG
+M38zuDPxNCs0ZTSeNNg1EzVNNYc1wjX9Njc2cjauNuk3JDdgN5w31zgUOFA4jDjI
+OQU5Qjl/Obw5+To2OnQ6sjrvOy07azuqO+g8JzxlPKQ84z0iPWE9oT3gPiA+YD6g
+PuA/IT9hP6I/4kAjQGRApkDnQSlBakGsQe5CMEJyQrVC90M6Q31DwEQDREdEikTO
+RRJFVUWaRd5GIkZnRqtG8Ec1R3tHwEgFSEtIkUjXSR1JY0mpSfBKN0p9SsRLDEtT
+S5pL4kwqTHJMuk0CTUpNk03cTiVObk63TwBPSU+TT91QJ1BxULtRBlFQUZtR5lIx
+UnxSx1MTU19TqlP2VEJUj1TbVShVdVXCVg9WXFapVvdXRFeSV+BYL1h9WMtZGllp
+WbhaB1pWWqZa9VtFW5Vb5Vw1XIZc1l0nXXhdyV4aXmxevV8PX2Ffs2AFYFdgqmD8
+YU9homH1YklinGLwY0Njl2PrZEBklGTpZT1lkmXnZj1mkmboZz1nk2fpaD9olmjs
+aUNpmmnxakhqn2r3a09rp2v/bFdsr20IbWBtuW4SbmtuxG8eb3hv0XArcIZw4HE6
+cZVx8HJLcqZzAXNdc7h0FHRwdMx1KHWFdeF2Pnabdvh3VnezeBF4bnjMeSp5iXnn
+ekZ6pXsEe2N7wnwhfIF84X1BfaF+AX5ifsJ/I3+Ef+WAR4CogQqBa4HNgjCCkoL0
+g1eDuoQdhICE44VHhauGDoZyhteHO4efiASIaYjOiTOJmYn+imSKyoswi5aL/Ixj
+jMqNMY2Yjf+OZo7OjzaPnpAGkG6Q1pE/kaiSEZJ6kuOTTZO2lCCUipT0lV+VyZY0
+lp+XCpd1l+CYTJi4mSSZkJn8mmia1ZtCm6+cHJyJnPedZJ3SnkCerp8dn4uf+qBp
+oNihR6G2oiailqMGo3aj5qRWpMelOKWpphqmi6b9p26n4KhSqMSpN6mpqhyqj6sC
+q3Wr6axcrNCtRK24ri2uoa8Wr4uwALB1sOqxYLHWskuywrM4s660JbSctRO1irYB
+tnm28Ldot+C4WbjRuUq5wro7urW7LrunvCG8m70VvY++Cr6Evv+/er/1wHDA7MFn
+wePCX8Lbw1jD1MRRxM7FS8XIxkbGw8dBx7/IPci8yTrJuco4yrfLNsu2zDXMtc01
+zbXONs62zzfPuNA50LrRPNG+0j/SwdNE08bUSdTL1U7V0dZV1tjXXNfg2GTY6Nls
+2fHadtr724DcBdyK3RDdlt4c3qLfKd+v4DbgveFE4cziU+Lb42Pj6+Rz5PzlhOYN
+5pbnH+ep6DLovOlG6dDqW+rl63Dr++yG7RHtnO4o7rTvQO/M8Fjw5fFy8f/yjPMZ
+86f0NPTC9VD13vZt9vv3ivgZ+Kj5OPnH+lf65/t3/Af8mP0p/br+S/7c/23//3Bh
+cmEAAAAAAAMAAAACZmYAAPKnAAANWQAAE9AAAApbdmNndAAAAAAAAAABAAEAAAAA
+AAAAAQAAAAEAAAAAAAAAAQAAAAEAAAAAAAAAAQAAbmRpbgAAAAAAAAA2AACnQAAA
+VYAAAEzAAACewAAAJYAAAAzAAABQAAAAVEAAAjMzAAIzMwACMzMAAAAAAAAAAHNm
+MzIAAAAAAAEMcgAABfj///MdAAAHugAA/XL///ud///9pAAAA9kAAMBxbW1vZAAA
+AAAAAAYQAACgKgAAAADPPBmAAAAAAAAAAAAAAAAAAAAAAP/AABEIAa4BNgMBIgAC
+EQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMD
+AgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKC
+CQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2
+d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK
+0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAA
+AAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFR
+B2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RF
+RkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqi
+o6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T1
+9vf4+fr/2wBDAAEBAQEBAQEBAQECAQEBAgMCAgICAwQDAwMDAwQEBAQEBAQEBAQE
+BAQEBAQFBQUFBQUGBgYGBgcHBwcHBwcHBwf/2wBDAQEBAQICAgMCAgMHBQQFBwcH
+BwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwf/
+3QAEABT/2gAMAwEAAhEDEQA/AP7+KKKKACiiigAooooAKKKKACiiigAooooAKKKK
+ACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKK
+ACiiigD/0P7+KKKKACiiigAor/PI/ao/aI+O+h/8FQvib4Z0j4v+I9O8O23xGigj
+sYr+ZYFjMkIKCPftC47YxX9An/Baj9mD9u/49fE34N6z+ybrl9pXhrQ9Dnt9UW01
+RrAG5abcpKqRvOzuailJzweHxiWlVtW7WjGV3/4EkayppV6tBv4Ve/fVq34H9GdF
+fmd/wSk+GHx++C37I2keEP2ndSmu/iHZ6rdTPNeXn2xvs7rFszM3ONwbgniv0jTV
+NNkWR49RgdIhuciRSAPU88CuvFUFTnyqSei1Xmk/w2OPDVXUjzOLWrVn5O347l6i
+uV0jxz4N1+/uNL0XxRY6pqNr/rIIJkd17cgHPWuqJABJOAKwsbhRXn+tfFf4aeHb
+46brvjvStK1BcEwz3CK3PTgmu1sdQsdTtYr3TryO+tJxlJYmDKQfQjiktVdA9Ny3
+RXP6x4r8MeH43l1zX7TSo4zhjPKqY+uTVXRfHXgzxGSNB8UWGrEcYgmRz+hoSvsD
+03OqoqOWWKCNpZpFiiTksxwB+JqvDqNhcb/s99DP5Yy2x1OB6nB4FAFyiq8F3a3Q
+Y2tzHchDgmNg2Prg1YoAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAo
+oooAKKKKACiiigD/0f7+KKKKACiiigD/ADZP2vf+Ur3xT/7KXF/6Mhr9j/8Ag531
+bVNO8afsypYajPZJJpN0WETlQT5rcnHWvxw/a9/5SvfFP/spcX/oyGv1/wD+DoT/
+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
+LY1rVZVJupJ6vfz/AK/4J+Qnw6/4JVp4A/4JvfEH/gn6nxoOpf8ACdyTyHxR/Zmz
+yTPNBL/x6fam3Y8nH+uHX2rhv+CYP/BHof8ABOT4l/ED4hn48/8AC2D450iPSha/
+2T/Z/k7JfM37/tlzvz0xgfWv20orqeIm6s61/ekrN99LfkYOmnTjR+yndet0/wA0
+FFFFYFhRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUU
+Af/T/v4ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKK
+ACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/U/v4ooooAKKKK
+ACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKK
+ACiiigAooooAKKKKACiiigAooooAKKKKAP/V/v4ooooAKKKKACiiigAooooAKKKK
+ACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKK
+ACiiigAooooAKKKKAP/W/v4ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKK
+ACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKK
+AP/X/v4ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKK
+ACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/Q/v4ooooAKCcc
+9hRUNwpe3mQHaWUjP4UAVW1SzTzmkk8pIPvM3A/OvlH47/t0/s1/s5WrXXxM8dpZ
+hV3GO1UTv/3yGBr8E/8Agu3/AMFkX/Yy8Ez/AA8+FmpqvxC1GN4twOQrD1wcjrX+
+cP8AtG/txfH39pjxE/irx541vW1BiS6RTMI8t14zQB/qS/ET/g5e/wCCWXwwaRPE
+vjzxU5i6/ZNElm6fSSvAm/4O7v8AgjerFT40+IGQcf8AIsT/APx2v8qW613WNRyN
+Q1K4ut3XzHJ/nWY8ysPJQY+tAH+rWf8Ag7w/4I3DGfGvj/8A8Jif/wCO0n/EXj/w
+Rt/6Hb4gf+ExP/8AHa/ykWjjiHz/ADE+lVPl96AP9Xn/AIi8f+CNv/Q7fED/AMJi
+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" alt="" style="width:150px;" /></figure></p>
+<p><em><strong>callback</strong></em>：回调函数。即用来设置 hide() 执行完成后需要执行的操作。</p>
+<h4><a id="hide%E4%B8%8D%E4%BC%A0%E5%8F%82" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>hide( ) 不传参</h4>
+<p>隐藏元素的最简单方法是不传参直接调用hide( )，如果<font color=green><strong>没有设置参数</strong></font>，则匹配的元素将被<font color=green><strong>立即隐藏，没有动画</strong></font>例如：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;jQuery 动画&lt;/title&gt;
+    &lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        div {
+            background: paleturquoise;
+            width: 700px;
+            height: 100px;
+            margin: 7px;
+            float: left;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;script&gt;
+        $(window).on(&quot;load&quot;, function() {
+            // 添加6个div到body中
+            for(var i = 0; i &lt; 6; i++) {
+                $(&quot;&lt;div&gt;&quot;).appendTo(document.body)
+            }
+            // 给div绑定点击事件
+            $(&quot;div&quot;).on(&quot;click&quot;, function() {
+                // 被点击后隐藏自身
+                $(this).hide();
+            })
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h4><a id="hide-duration-easing" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>hide([duration][,easing])</h4>
+<p>传参，给定隐藏速度。如下，当我们指定了duration之后，easing也会被指定默认值swing，如下：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;jQuery 动画&lt;/title&gt;
+    &lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        div {
+            background: paleturquoise;
+            width: 700px;
+            height: 100px;
+            margin: 7px;
+            float: left;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;script&gt;
+        $(window).on(&quot;load&quot;, function() {
+            // 添加6个div到body中
+            for(var i = 0; i &lt; 6; i++) {
+                $(&quot;&lt;div&gt;&quot;).appendTo(document.body)
+            }
+            // 给div绑定点击事件
+            $(&quot;div&quot;).on(&quot;click&quot;, function() {
+                // 被点击后隐藏自身
+                // $(this).hide(1000); // 相当于 $(this).hide(1000, &quot;swing&quot;)
+                $(this).hide(1000, &quot;linear&quot;);
+            })
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h4><a id="hide-duration-easing-callback" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>hide([duration][,easing][,callback])</h4>
+<p>传参，指定速度，设置easing和回调函数callback。</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;jQuery 动画&lt;/title&gt;
+    &lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        div {
+            background: paleturquoise;
+            width: 700px;
+            height: 100px;
+            margin: 7px;
+            float: left;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;script&gt;
+        $(window).on(&quot;load&quot;, function() {
+            // 添加6个div到body中
+            for(var i = 0; i &lt; 6; i++) {
+                $(&quot;&lt;div&gt;&quot;).appendTo(document.body)
+            }
+            // 给div绑定点击事件
+            $(&quot;div&quot;).on(&quot;click&quot;, function() {
+                // 被点击后隐藏自身
+                // $(this).hide(1000); // 相当于 $(this).hide(1000, &quot;swing&quot;)
+                $(this).hide(1000, &quot;swing&quot;, function () {
+                    $(&quot;&lt;p&gt;您点击的元素已被隐藏了。&lt;/p&gt;&quot;).appendTo(document.body)
+                });
+            })
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h3><a id="show" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>show( )</h3>
+<p>show( ) 方法主要用于显示元素，与 hide() 方法用途正好相反，用法相似。需要注意的是：<font color=hotpink><strong>如果选择的元素是可见的，则这个方法将不会改变任何东西</strong></font>；同样的，如果没有参数，匹配的元素将被立即显示，没有动画。</p>
+<p>如下：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;jQuery 动画&lt;/title&gt;
+    &lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        div {
+            background: paleturquoise;
+            width: 700px;
+            height: 100px;
+            margin: 7px;
+            float: left;
+        }
+
+        #btn {
+            display: none;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;button id=&quot;btn&quot;&gt;显示元素&lt;/button&gt;
+    &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+        $(window).on(&quot;load&quot;, function () {
+            // 给content绑定点击事件
+            $(&quot;#content&quot;).on(&quot;click&quot;, function () {
+                // 被点击后隐藏自身
+                $(this).hide(300, &quot;swing&quot;, function () {
+                    $(&quot;&lt;p id='msg'&gt;您点击的元素已被隐藏了.&lt;/p&gt;&quot;).appendTo(document.body);
+                    // 显示按钮
+                    $(&quot;#btn&quot;).css(&quot;display&quot;, &quot;block&quot;);
+                });
+            })
+
+            // 给按钮绑定事件
+            $(&quot;#btn&quot;).on(&quot;click&quot;, function () {
+                $(&quot;#content&quot;).show(500, &quot;linear&quot;, function () {
+                    $(&quot;#msg&quot;).remove();
+                    // 隐藏按钮
+                    $(&quot;#btn&quot;).css(&quot;display&quot;, &quot;none&quot;);
+                });
+            })
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2><a id="%E9%AB%98%E5%BA%A6%E5%8F%98%E5%8C%96" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>高度变化</h2>
+<p>在使用 hide( ) 和 show( ) 时大家应该注意到了，元素的宽高是跟随着发生变化，那么如果只想让宽高发生变化可以通过什么方式去实现呢？</p>
+<h3><a id="slideup" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>slideUp( )</h3>
+<p>slideUp( )方法将元素 <font color=green><strong>由下到上缩短隐藏</strong>（可以简单记忆为：<strong>从下往上擦除元素</strong>）</font>，在没有参数时，持续时间默认为400毫秒。</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;jQuery 动画&lt;/title&gt;
+    &lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        div {
+            background: paleturquoise;
+            width: 700px;
+            height: 100px;
+            margin: 7px;
+            float: left;
+        }
+
+        #btn {
+            display: none;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;button id=&quot;btn&quot;&gt;显示元素&lt;/button&gt;
+    &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+        $(window).on(&quot;load&quot;, function () {
+            // 给content绑定点击事件
+            $(&quot;#content&quot;).on(&quot;click&quot;, function () {
+                // 被点击后隐藏自身
+                $(this).slideUp(300, &quot;swing&quot;, function () {
+                    $(&quot;&lt;p id='msg'&gt;您点击的元素已被隐藏了.&lt;/p&gt;&quot;).appendTo(document.body);
+                    // 显示按钮
+                    $(&quot;#btn&quot;).css(&quot;display&quot;, &quot;block&quot;);
+                });
+            })
+
+            // 给按钮绑定事件
+            $(&quot;#btn&quot;).on(&quot;click&quot;, function () {
+                $(&quot;#content&quot;).show(500, &quot;linear&quot;, function () {
+                    $(&quot;#msg&quot;).remove();
+                    // 隐藏按钮
+                    $(&quot;#btn&quot;).css(&quot;display&quot;, &quot;none&quot;);
+                });
+            })
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<p>slideUp( )与隐藏显示函数一样，都可以接受参数，有对应的这几种情况：<strong>slideUp([duration])</strong>、<strong>slideUp([duration][,easing])</strong>、<strong>slideUp([duration][,easing][,callback])</strong>，那么他们的用法也一致。</p>
+<h3><a id="slidedown" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>slideDown( )</h3>
+<p>slideDown( )与slideUp( )方法相反，slideDown( )方法 <font color=green><strong>使元素由上到下延伸显示</strong></font>，在没有参数时，持续时间默认为400毫秒。参数和用法也与slideUp( )一致。</p>
+<blockquote>
+<p><strong>注意：</strong><br />
+slideDown( )是<strong>让隐藏的元素显示，对已经呈现显示状态的对象是没有作用效果的。</strong> 如下：</p>
+</blockquote>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;jQuery 动画&lt;/title&gt;
+    &lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        div {
+            background: paleturquoise;
+            width: 700px;
+            height: 100px;
+            margin: 7px;
+            float: left;
+        }
+
+        #btn {
+            display: none;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;button id=&quot;btn&quot;&gt;显示元素&lt;/button&gt;
+    &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+        $(window).on(&quot;load&quot;, function () {
+            // 给content绑定点击事件
+            $(&quot;#content&quot;).on(&quot;click&quot;, function () {
+                // 被点击后隐藏自身
+                $(this).slideUp(300, &quot;swing&quot;, function () {
+                    $(&quot;&lt;p id='msg'&gt;您点击的元素已被隐藏了.&lt;/p&gt;&quot;).appendTo(document.body);
+                    // 显示按钮
+                    $(&quot;#btn&quot;).css(&quot;display&quot;, &quot;block&quot;);
+                });
+            })
+
+            // 给按钮绑定事件
+            $(&quot;#btn&quot;).on(&quot;click&quot;, function () {
+                $(&quot;#content&quot;).slideDown(500, &quot;linear&quot;, function () {
+                    $(&quot;#msg&quot;).remove();
+                    // 隐藏按钮
+                    $(&quot;#btn&quot;).css(&quot;display&quot;, &quot;none&quot;);
+                });
+            })
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h3><a id="slidetoggle" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>slideToggle( )</h3>
+<p>slideToggle( ) 方法可以<strong>在 slideDown( ) 与 slideUp( ) 方法之间进行切换</strong>。如果元素向下滑动，则 slideToggle( ) 可向上滑动它们；如果元素向上滑动，则 slideToggle( ) 可向下滑动它们。同时，也与其他几个函数一样，都可以接受参数，用法也一致。</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;jQuery 动画&lt;/title&gt;
+    &lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        div {
+            background: paleturquoise;
+            width: 700px;
+            height: 100px;
+            margin: 7px;
+            display: none;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;button id=&quot;btn&quot;&gt;切换元素&lt;/button&gt;
+    &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+        $(window).on(&quot;load&quot;, function () {
+
+            // 给按钮绑定事件
+            $(&quot;#btn&quot;).on(&quot;click&quot;, function () {
+                $(&quot;#content&quot;).slideToggle(500, &quot;swing&quot;);
+            })
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2><a id="%E6%B7%A1%E5%85%A5%E6%B7%A1%E5%87%BA" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>淡入淡出</h2>
+<p>在使用 css 设置样式时，如果想要让元素在页面不可见，常用的办法就是通过设置样式的<code>display: none</code>。<br />
+除此之外还可以通过一些类似的办法来达到这个目的，设置元素透明度 <code>opacity：0</code>，可以让元素不可见，透明度的参数是0~1之间的值，通过改变这个值可以让元素有一个透明度的效果。常见的淡入淡出动画 <code>fadeIn()</code> 和 <code>fadeOut()</code> 方法正是基于这样的原理的。</p>
+<h3><a id="fadein" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>fadeIn( )</h3>
+<p>fadeIn( ) 用于淡入已隐藏的元素（也就是 <font color=green><strong>用来显示元素</strong></font>），元素透明度由 <strong>完全透明变为完全不透明</strong>。没有参数时，持续时间默认为400毫秒。可以接受参数，也有对应的这几种情况：<strong>fadeIn([duration])</strong>、<strong>fadeIn([duration][,easing])</strong>、<strong>fadeIn([duration][,easing][,callback])</strong>，使用方式一致。</p>
+<blockquote>
+<p>注意：<br />
+此方法是 <strong>让隐藏的元素显示出来的，对已经呈现显示状态的对象是没有作用效果的。</strong> 如下：</p>
+</blockquote>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;jQuery 动画&lt;/title&gt;
+    &lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        div {
+            background: paleturquoise;
+            width: 700px;
+            height: 100px;
+            margin: 10px;
+            display: none;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;button id=&quot;btn&quot;&gt;显示元素&lt;/button&gt;
+    &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+        $(window).on(&quot;load&quot;, function () {
+            // 给btn绑定点击事件
+            $(&quot;#btn&quot;).on(&quot;click&quot;, function () {
+                // 显示content
+                $(&quot;#content&quot;).fadeIn(2000);
+            })
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h3><a id="fadeout" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>fadeOut( )</h3>
+<p>与 fadeIn( ) 相反，用于淡出可见的元素（<font color=green><strong>隐藏已显示的元素</strong></font>），没有参数时，持续时间默认为400毫秒。可以接受参数，用法类似。</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;jQuery 动画&lt;/title&gt;
+    &lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        div {
+            background: paleturquoise;
+            width: 700px;
+            height: 100px;
+            margin: 7px;
+            display: none;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;button id=&quot;btn&quot;&gt;显示元素&lt;/button&gt;
+    &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+        $(window).on(&quot;load&quot;, function () {
+            // 给按钮绑定事件
+            $(&quot;#btn&quot;).on(&quot;click&quot;, function () {
+                $(&quot;#content&quot;).fadeIn(500, &quot;swing&quot;);
+            })
+            // 给content绑定事件
+            $(&quot;#content&quot;).on(&quot;click&quot;, function () {
+                $(&quot;#content&quot;).fadeOut(500, &quot;linear&quot;);
+            })
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h3><a id="fadetoggle" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>fadeToggle( )</h3>
+<p>fadeToggle( ) 方法可以在 <strong>fadeIn( ) 与 fadeOut( ) 方法之间进行切换</strong>，如果元素已淡出，则 fadeToggle( ) 会向元素添加淡入效果；如果元素已淡入，则 fadeToggle( ) 会向元素添加淡出效果。没有参数时，持续时间默认为400毫秒。可以接受参数，用法一致。</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;jQuery 动画&lt;/title&gt;
+    &lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        div {
+            background: paleturquoise;
+            width: 700px;
+            height: 100px;
+            margin: 7px;
+            display: none;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;button id=&quot;btn&quot;&gt;切换元素&lt;/button&gt;
+    &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+        $(window).on(&quot;load&quot;, function () {
+            // 给按钮绑定事件
+            $(&quot;#btn&quot;).on(&quot;click&quot;, function () {
+                $(&quot;#content&quot;).fadeToggle(800, &quot;swing&quot;);
+            })
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h3><a id="fadeto" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>fadeTo( )</h3>
+<p>淡入淡出 fadeIn 与 fadeOut 都是修改元素样式的 opacity 属性，都有个不足的地方，变化的区间要么是0，要么是1。<br />
+那么如果要让元素保持动画效果，比如执行 <code>opacity = 0.5</code> 的效果时，要如何处理？<br />
+====&gt;</p>
+<p>jQuery提供了 fadeTo( ) 方法，此方法允许渐变为给定的不透明度并保持，函数原型：</p>
+<pre><code class="language-JavaScript">fadeTo( duration, opacity [, callback ] )
+</code></pre>
+<p><em><strong>duration</strong></em>：<strong>必需的，表示持续时间，</strong> 持续时间是以毫秒为单位的，数值越大，动画越慢。默认持续400毫秒的；'fast' 和 'slow' 分别代表 200 和 600 毫秒的延时。</p>
+<p><em><strong>opacity</strong></em>：<strong>必需的，值为0和1之间的数字，表示元素的不透明度</strong>，将淡入淡出效果设置为给定的不透明度，值越小越透明。0 完全透明，1 完全不透明；</p>
+<p><em><strong>callback</strong></em>：<strong>可选的，回调函数</strong>，动画完成时执行的函数。</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;jQuery 动画&lt;/title&gt;
+    &lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        div {
+            background: paleturquoise;
+            width: 700px;
+            height: 100px;
+            margin: 10px;
+            display: none;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;button id=&quot;btn&quot;&gt;显示元素&lt;/button&gt;
+    &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+        $(window).on(&quot;load&quot;, function () {
+            var isHide = true
+            // 给btn绑定点击事件
+            $(&quot;#btn&quot;).on(&quot;click&quot;, function () {
+                // 显示或隐藏content
+                $(&quot;#content&quot;).fadeTo(2000, 0.3, function() {
+                    console.log(&quot;保持0.3的透明度&quot;)
+                })
+            })
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2><a id="%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8A%A8%E7%94%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>自定义动画</h2>
+<h3><a id="animate" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>animate( )</h3>
+<p>animate( ) 方法允许我们通过修改 CSS 样式来让元素从一个状态改变为另一个状态，从而实现动画的效果。<br />
+函数原型如下：</p>
+<pre><code class="language-html">animate( properties [, duration ] [, easing ] [, complete ] )
+</code></pre>
+<p><em><strong>properties</strong></em> ：必须的。用来设置产生动画效果的一个或多个 CSS 属性。</p>
+<blockquote>
+<p><strong>注意：</strong><br />
+当与 animate( ) 方法一起使用时，该属性名称必须是<strong>驼峰命名规范</strong>，如： paddingLeft 代替 padding-left，marginRight 代替 margin-right，依此类推。</p>
+</blockquote>
+<p><em><strong>duration</strong></em>：即设置隐藏效果的速度。接受Number和String类型的值：</p>
+<pre><code class="language-plain_text">1. 毫秒
+2. &quot;slow&quot;
+3. &quot;fast&quot;
+</code></pre>
+<p><em><strong>easing</strong></em>：设置动画在不同点上元素的速度，接受String类型的值：</p>
+<pre><code class="language-plain_text">1. &quot;swing&quot; (在开或者结尾移动较慢慢，在中间移动较快)
+2. &quot;linear&quot; （匀速运动）
+</code></pre>
+<p><em><strong>callback</strong></em>：回调函数。即用来设置hide()执行完成后需要执行的操作。</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;jQuery 动画&lt;/title&gt;
+    &lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        div {
+            background: paleturquoise;
+            width: 50px;
+            height: 50px;
+            margin: 50px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;button id=&quot;btn&quot;&gt;开始动画&lt;/button&gt;
+    &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+        $(window).on(&quot;load&quot;, function () {
+            // 给btn绑定点击事件
+            $(&quot;#btn&quot;).on(&quot;click&quot;, function () {
+                $(&quot;#content&quot;).animate({
+                    width: &quot;300px&quot;
+                }, 500);
+                $(&quot;#content&quot;).animate({
+                    height: &quot;300px&quot;
+                }, 500);
+                $(&quot;#content&quot;).animate({
+                    &quot;border-radius&quot;: &quot;150px&quot;,
+                }, 500, function () {
+                    $(&quot;#content&quot;).css(&quot;background-color&quot;, &quot;hotpink&quot;)
+                });
+            })
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<p>jQuery 提供了针对动画的队列功能，我们可以编写多个 animate( ) ，jQuery 会创建包含这些方法调用的“内部”队列，然后逐一运行这些 animate 调用。</p>
+<h2><a id="%E5%81%9C%E6%AD%A2%E5%8A%A8%E7%94%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>停止动画</h2>
+<h3><a id="stop" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>stop( )</h3>
+<p>此方法用于在动画或效果完成前对它们进行停止。</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;jQuery 动画&lt;/title&gt;
+    &lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        div {
+            background: paleturquoise;
+            width: 50px;
+            height: 50px;
+            margin: 50px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;button id=&quot;btn&quot;&gt;开始动画&lt;/button&gt;
+    &lt;button id=&quot;stop&quot;&gt;停止动画&lt;/button&gt;
+    &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+        $(window).on(&quot;load&quot;, function () {
+            // 给btn绑定点击事件
+            $(&quot;#btn&quot;).on(&quot;click&quot;, function () {
+                $(&quot;#content&quot;).animate({
+                    width: &quot;300px&quot;
+                }, 500);
+                $(&quot;#content&quot;).animate({
+                    height: &quot;300px&quot;
+                }, 500);
+                $(&quot;#content&quot;).animate({
+                    &quot;border-radius&quot;: &quot;150px&quot;,
+                }, 500, function () {
+                    $(&quot;#content&quot;).css(&quot;backgroundColor&quot;, &quot;hotpink&quot;)
+                });
+            })
+            $(&quot;#stop&quot;).on('click', function () {
+                // 停止 #content 元素的动画效果
+                $(&quot;#content&quot;).stop()
+            })
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h3><a id="stop-stopall-gotoend" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>stop(stopAll, goToEnd)</h3>
+<p><em><strong>stopAll</strong></em> ：可选的，此参数规定<strong>是否应该清除动画队列</strong>，即把当前元素接下去尚未执行完的动画队列清空。默认是 false，即仅停止活动的动画，允许任何排入队列的动画向后执行。</p>
+<p><em><strong>goToEnd</strong></em>：可选的，参数规定<strong>是否立即完成当前动画</strong>。默认是 false，因此，默认地，stop( ) 会清除在被选元素上指定的当前动画。可以用于让正在执行的动画直接到达结束时刻的状态，通常用于后一个动画需要基于前一个动画的末状态的情况，可以通过 <code>stop(false,true)</code> 这种方式来让当前动画直接到达末状态。</p>
+<p>如果两者结合起来 <strong>stop(true,true)</strong>，即停止当前动画直接到达当前动画的末状态，并清空动画队列。</p>
+<h2><a id="chaining" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chaining</h2>
+<p>在jQuery中，我们还可以把动作（方法）链接起来，Chaining 允许我们在一条语句中允许多个 jQuery 方法（在相同的元素上）。这样的话，浏览器就不必多次查找相同的元素，如需链接一个动作，我们可以直接把该动作追加到之前的动作上，如下：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;jQuery 动画&lt;/title&gt;
+    &lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        div {
+            background: paleturquoise;
+            width: 50px;
+            height: 50px;
+            margin: 50px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;button id=&quot;btn&quot;&gt;开始动画&lt;/button&gt;
+    &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+        $(window).on(&quot;load&quot;, function () {
+            // 给btn绑定点击事件
+            $(&quot;#btn&quot;).on(&quot;click&quot;, function () {
+                $(&quot;#content&quot;)
+                    .css('background-color','pink')
+                    .animate({width:'200px', height:'200px', top:'300px'}, 400)
+                    .animate({width:'200px', height:'100px', left:'300px'}, 400)
+                    .animate({width:'100px', height:'100px', top:'0px', 'borderRadius': '50px'}, 400)
+                    .animate({width:'0px', height:'0px', left:'0px'}, 400)
+            })
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+</div></body></html>
