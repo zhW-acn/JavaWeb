@@ -22,7 +22,7 @@
 <div class="d4">
     注册成功
 </div>
-<script src="jquery-3.7.1.min.js"></script>
+<script src="../../web/jquery-3.7.1.min.js"></script>
 <script>
     /*  用户名规则：只能是小写字母，长度在[6,8]
           密码规则：只能是大写字母或数字，长度在[6,10]
@@ -56,6 +56,32 @@
         }
         return true
     }
+    
+    $.ajax({
+        // 请求地址
+        url:"",
+        // 请求类型
+        type:"",
+        // 请求参数
+        data:"",
+        // 处理响应
+        success:function () {
+            
+        },
+        // 失败时的处理
+        error:function () {
+
+        },
+
+        // 同步请求
+        async:false,
+
+        // 设置响应 json数据格式
+        dataType:{
+            "name":"acane",
+            "age":18
+        }
+    })
 </script>
 </body>
 </html>
