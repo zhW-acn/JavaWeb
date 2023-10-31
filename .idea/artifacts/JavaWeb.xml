@@ -6,6 +6,8 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="JavaWeb" />
+          <element id="library" level="application" name="bootstrap.js" />
+          <element id="library" level="application" name="jquery-3.7.1" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="lib" />
@@ -13,7 +15,6 @@
           <element id="file-copy" path="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.26/lombok-1.18.26.jar" />
         </element>
       </element>
-      <element id="library" level="application" name="jquery-3.7.1" />
     </root>
   </artifact>
 </component>

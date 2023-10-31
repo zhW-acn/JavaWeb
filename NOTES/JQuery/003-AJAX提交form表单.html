@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="form">
+    <input type="text" name="name" id="name">
+    <input  type="password" name="password" id="password">
+    <input type="button" id="subBtn">
+</form>
+
+
+<script>
+    $('#subBtn').click(function () {
+        $.ajax({
+            url:"地址？op=login",// getparam("op")=login后
+            type:"",
+            data:$('#form').serialize(),// 将整个form表单提交，Servlet使用getParam获取
+            success:function () {
+                // Servlet使用resp.getWriter响应数据
+                // 前端使用location.href重定向
+            }
+        })
+    })
+</script>
+</body>
+</html>
