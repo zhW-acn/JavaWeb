@@ -5,15 +5,27 @@
     <title></title>
 </head>
 <body>
-<p class="p" onclick="">p标签</p>
+<div class="div" onclick="">div标签</div>
 
-
+<script src="../js/jquery-3.7.1.min.js"></script>
 <script>
-  $('p').bind('click',function () {
-    alert($('p').text())
-  })
+    $('.div').click(function () {
+        var p = $("<p>你好</p>")
+        // $(this).append(p) // 在所选标签的子标签最后添加子结点
+        // $(this).prepend(p)   // 在所选标签的子标签之前添加子结点
+        // $(this).after(p)      // 在所选标签之后添加兄弟节点
+        // $(this).before(p)     // 在所选标签之前添加兄弟节点
 
-  $('p').html()
+        // $(this).after($(this).clone()) // 克隆自己，默认false不克隆原来对象所绑定的函数。传参true连同方法一起复制
+
+        // $(this).replaceWith(p) // 替换
+
+        // $(this).empty() // 清空该标签，（删除所有子标签）
+        // $(this).remove() // 删除，包含自己
+    })
+
+
 </script>
+
 </body>
 </html>

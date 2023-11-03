@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="../../web/js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+全选<input type="checkbox" class="all" value="全选"><br>
+
+1<input type="checkbox" class="target"><br>
+2<input type="checkbox" class="target"><br>
+3<input type="checkbox" class="target"><br>
+4<input type="checkbox" class="target"><br>
+5<input type="checkbox" class="target">
+
+
+<script>
+    $('.target').click(function () {
+        var targets = $('.target')
+        var res = true;
+        $.each(targets, function (index, target) {
+            var status = $(target).prop("checked")
+            if (status !== true) {
+                res = false
+                return false
+            }
+        })
+        $('.all').prop("checked", res)
+    })
+
+    $('.all').click(function () {
+        console.log($(this).prop("checked"))
+        var status = $(this).prop("checked")
+        var targets = $('.target')
+        if (status === true) {
+            $.each(targets, function (index, target) {
+                $(target).prop("checked", true)
+            })
+        } else {
+            $.each(targets, function (index, target) {
+                $(target).prop("checked", false)
+            })
+        }
+    })
+
+</script>
+</body>
+</html>

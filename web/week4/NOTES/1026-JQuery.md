@@ -50,7 +50,16 @@ innertext和innerhtml对应的是text()和html()
 .show()
 .toggle()【相当于hide和show】
 
+.append()在所选标签的子标签最后添加子结点
+.prepend()在所选标签的子标签首位添加子结点
+.after()在所选标签后添加兄弟标签
+.before()在所选标签前添加兄弟标签
+.clone()返回克隆的对象，参数false表示只复制元素，不复制方法
+.replaceWith()替换，换成参数的元素
+
+
 
 .val()获取input中的值
 .text()获取非表单中的值
 .html()直接获取子标签，包含标签名
+.prop("checked")返回true表示该多选框是选中状态   .prop("clicked",true) 将该多选框选中

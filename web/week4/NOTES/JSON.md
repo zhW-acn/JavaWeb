@@ -18,6 +18,9 @@ public class jsonTest {
         // JSON转对象
         User json2User = JSONObject.parseObject(user2Json, User.class);
         System.out.println(json2User);
+        
+        // 在前端，使用JSON.stringify()把对象转成JSON
+        // 用eval把JSON转对象
     }
 }
 ```
